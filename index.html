@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#60338a">
-<title>الحفلجية – الواجهة الذكية V20</title>
+<title>الحفلجية – الواجهة الذكية V27</title>
 <style>
 :root{--p:#60338a;--p2:#9b6bc3;--dark:#2b2032;--muted:#746b79;--line:#eadff0;--bg:#f4eff7}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
@@ -35,9 +35,35 @@ button{font-family:inherit;border:0;cursor:pointer}.tabs{display:flex;flex-wrap:
 @media(max-width:600px){.founder{grid-template-columns:1fr;text-align:center}.founder-photo{width:142px;height:142px}.container{padding-left:10px;padding-right:10px}.card{padding:15px;border-radius:20px}.teams{grid-template-columns:1fr 1fr}}
 
 .admin-entry{display:none!important}
-.photo-upload{display:none!important}.notice{background:#fff8e8;border:1px solid #f0d99e;padding:12px;border-radius:12px;line-height:1.8;margin:12px 0}.admin-tabs{display:flex;flex-wrap:wrap;gap:7px}.admin-tabs .tab{font-size:12px}.admin-pane{padding-top:12px}.order-row{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--line);border-radius:12px;padding:10px;margin:8px 0;background:#fff}.order-row small{display:block;color:var(--muted);font-size:12px;margin-top:4px}.order-row button{border:0;border-radius:8px;padding:7px 10px;background:#eee5f5;color:var(--p);margin-inline-start:4px}.admin-form{display:grid;gap:8px;margin-top:14px}.admin-pane p{line-height:1.9}.region{margin:10px 0}.region summary{font-weight:bold;font-size:16px;padding:15px;border-radius:14px;background:#f4edf9;border:1px solid var(--line);cursor:pointer;list-style:none}.region summary:after{content:'＋';float:left;color:var(--p)}.region[open] summary:after{content:'−'}.region-content{padding:12px 4px;display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:9px}.region-item{min-height:45px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--dark);padding:10px;font-weight:bold}.person-actions{display:none!important}
+.photo-upload{display:none!important}.notice{background:#fff8e8;border:1px solid #f0d99e;padding:12px;border-radius:12px;line-height:1.8;margin:12px 0}
+#hfCloudNotice{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;z-index:20!important;background:#fff8e8!important;color:#3b2b12!important;border:2px solid #d8a83e!important;min-height:64px!important}
+#hfCloudNotice b,#hfCloudStatus,#hfCloudNotice small{color:#3b2b12!important;visibility:visible!important;opacity:1!important}.admin-tabs{display:flex;flex-wrap:wrap;gap:7px}.admin-tabs .tab{font-size:12px}.admin-pane{padding-top:12px}.order-row{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--line);border-radius:12px;padding:10px;margin:8px 0;background:#fff}.order-row small{display:block;color:var(--muted);font-size:12px;margin-top:4px}.order-row button{border:0;border-radius:8px;padding:7px 10px;background:#eee5f5;color:var(--p);margin-inline-start:4px}.admin-form{display:grid;gap:8px;margin-top:14px}.admin-pane p{line-height:1.9}.region{margin:10px 0}.region summary{font-weight:bold;font-size:16px;padding:15px;border-radius:14px;background:#f4edf9;border:1px solid var(--line);cursor:pointer;list-style:none}.region summary:after{content:'＋';float:left;color:var(--p)}.region[open] summary:after{content:'−'}.region-content{padding:12px 4px;display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:9px}.region-item{min-height:45px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--dark);padding:10px;font-weight:bold}.person-actions{display:none!important}
 
 body.has-watermark:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background-image:var(--hf-watermark);background-repeat:no-repeat;background-position:center var(--hf-wm-position,center);background-size:var(--hf-wm-size,55%) auto;opacity:var(--hf-wm-opacity,.10)}body>*{position:relative;z-index:1}#brandTap{cursor:default;user-select:none}
+
+/* V23 additions */
+.v23-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0}
+.v23-btn{border:0;border-radius:15px;padding:13px 8px;background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;font: bold 14px Tahoma;cursor:pointer;box-shadow:0 5px 14px #60338a20}
+.v23-page{display:none}.v23-page.active{display:block}
+.v23-panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;margin:12px 0}
+.v23-panel h3{margin:0 0 10px;color:var(--p)}
+.v23-input{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;font:14px Tahoma;margin:6px 0;background:#fff;color:var(--dark)}
+.v23-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.v23-row>*{flex:1}
+.v23-small{font-size:12px;color:var(--muted);line-height:1.8}
+.v23-hidden{display:none!important}
+.v23-preview{max-width:100%;max-height:230px;display:block;margin:10px auto;border-radius:12px;object-fit:contain}
+.v23-post{border:1px solid var(--line);border-radius:14px;padding:12px;margin:10px 0;background:#fff}
+.v23-post img{max-width:100%;max-height:260px;object-fit:contain;border-radius:10px;display:block;margin:8px auto}
+.v23-chip{display:inline-block;padding:6px 10px;border-radius:999px;background:#f2eafa;color:var(--p);font-size:12px;margin:3px}
+.v23-mapbox{height:300px;border-radius:14px;overflow:hidden;background:#f3eff6;border:1px solid var(--line)}
+.v23-mapbox iframe{width:100%;height:100%;border:0}
+.v23-letter{width:48px;height:52px;text-align:center;font-size:23px;font-weight:bold;border:1px solid var(--line);border-radius:10px}
+.v23-number{width:100%;min-width:120px;padding:12px;border:1px solid var(--line);border-radius:10px;font-size:18px}
+.v23-theme{min-width:110px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer}
+.v23-founder-off .founder{display:none!important}
+@media(max-width:480px){.v23-actions{gap:7px}.v23-btn{font-size:12px;padding:12px 5px}}
+
 </style>
 </head>
 <body>
@@ -52,23 +78,115 @@ body.has-watermark:before{content:"";position:fixed;inset:0;pointer-events:none;
 <button class="team-btn" onclick="showSection('teamsView')">🗺️ المحافظات والتيمات</button>
 <button class="team-btn" onclick="showSection('mediaView')">🎬 تيم الميديا</button>
 <button class="team-btn" onclick="showSection('girlsView')">🦋 فراشات الحفلجية</button>
+
 </section>
-<div id="adminView" class="inner-view" style="display:none"><button class="back" onclick="showHome()">← رجوع للرئيسية</button><section class="card"><h2>🏛️ الإدارة العامة</h2><div class="tabs"><button class="tab active" onclick="adminTab('admins',this)">👤 الأدمن</button><button class="tab" onclick="adminTab('supervisors',this)">⭐ السوبر فايزر</button></div><div id="admins" class="people"></div><div id="supervisors" class="people" style="display:none"></div></section>
+<div class="v23-actions">
+  <button class="v23-btn" onclick="openV23Page('map')">🗺️ خريطة الحفلجية</button>
+  <button class="v23-btn" onclick="openV23Page('fines')">🚘 مخالفات السيارات</button>
+</div>
+<section class="card" id="publicPostsSection" style="display:none">
+  <h2>📢 مساحة النشر</h2><div id="publicPosts"></div>
+</section>
+<div id="adminView"  class="inner-view" style="display:none"><button class="back" onclick="showHome()">← رجوع للرئيسية</button><section class="card"><h2>🏛️ الإدارة العامة</h2><div class="tabs"><button class="tab active" onclick="adminTab('admins',this)">👤 الأدمن</button><button class="tab" onclick="adminTab('supervisors',this)">⭐ السوبر فايزر</button></div><div id="admins" class="people"></div><div id="supervisors" class="people" style="display:none"></div></section>
 </div><div id="teamsView" class="inner-view" style="display:none"><button class="back" onclick="showHome()">← رجوع للرئيسية</button><section class="card"><h2>🔎 اعرف تيم منطقتك</h2><div class="sub">اكتب اسم المنطقة أو الشارع وسيظهر التيم المسؤول</div><input id="areaSearch" class="search" placeholder="مثال: أم بيومي"><div id="searchResult" class="result"></div></section><section class="card"><h2>🗺️ المحافظات والتيمات</h2><div id="cairoRegion"></div><div id="regions"></div></section>
 </div><div id="mediaView" class="inner-view" style="display:none"><button class="back" onclick="showHome()">← رجوع للرئيسية</button><section class="card"><h2>🎬 تيم الميديا</h2><div id="media" class="people"></div></section>
 </div><div id="girlsView" class="inner-view" style="display:none"><button class="back" onclick="showHome()">← رجوع للرئيسية</button><section class="card"><h2>🦋 فراشات الحفلجية</h2><div id="girls" class="people"></div></section>
-</div><div class="footer">الحفلجية • الواجهة الذكية V20</div>
+</div>
+<div id="v23-map-page" class="v23-page">
+ <button class="back" onclick="closeV23Page()">← رجوع للرئيسية</button>
+ <section class="card">
+  <h2>🗺️ خريطة الحفلجية</h2>
+  <p class="v23-small">ابحث عن شارع أو مكان لعرض موقعه على الخريطة. اختيار التيم والمسؤولين يعتمد حاليًا على دليل المناطق الموجود بالموقع؛ الحدود الجغرافية المعتمدة ستُضاف بعد توثيقها.</p>
+  <input id="v23MapSearch" class="v23-input" placeholder="اكتب اسم شارع أو منطقة">
+  <div class="v23-row"><button class="tab active" onclick="searchV23Map()">بحث</button><button class="tab" onclick="clearV23Map()">مسح</button></div>
+  <div id="v23MapResult" class="result"></div>
+  <div class="v23-mapbox" style="margin-top:12px"><iframe id="v23MapFrame" title="خريطة الحفلجية" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=31.15%2C29.95%2C31.45%2C30.15&layer=mapnik"></iframe></div>
+  <p class="v23-small">الخريطة الأساسية تفاعلية عبر OpenStreetMap. لا توجد حتى الآن طبقات حدود تيمات موثقة أو تحديد تلقائي للمسؤول بمجرد لمس الخريطة.</p>
+ </section>
+</div>
+<div id="v23-fines-page" class="v23-page">
+ <button class="back" onclick="closeV23Page()">← رجوع للرئيسية</button>
+ <section class="card">
+  <h2>🚘 مخالفات السيارات</h2>
+  <p class="v23-small">أدخل حروف اللوحة الثلاثة ثم الأرقام. الاستعلام الرسمي غير مفعّل حتى ربط مصدر حكومي أو خدمة مصرح بها.</p>
+  <div class="v23-row" dir="rtl" style="justify-content:center">
+   <input class="v23-letter" maxlength="1" aria-label="الحرف الأول" id="plateL1">
+   <input class="v23-letter" maxlength="1" aria-label="الحرف الثاني" id="plateL2">
+   <input class="v23-letter" maxlength="1" aria-label="الحرف الثالث" id="plateL3">
+  </div>
+  <input class="v23-number" id="plateDigits" inputmode="numeric" placeholder="أرقام اللوحة" maxlength="6">
+  <div class="v23-row"><button class="tab active" onclick="lookupV23Fines()">استعلام</button><button class="tab" onclick="clearV23Fines()">مسح البيانات</button></div>
+  <div id="v23FinesResult" class="notice" style="display:none"></div>
+ </section>
+</div>
+
+<div class="footer">الحفلجية • الواجهة الذكية V27</div>
 </main>
 <main class="container" id="adminPanel" style="display:none">
  <button class="back" onclick="closeAdminPanel()">← رجوع للموقع</button>
- <section class="card"><h2>⚙️ لوحة إدارة الحفلجية V20</h2>
- <div class="notice"><b>نسخة معاينة V20</b><br>التغييرات الحالية تُحفظ محليًا على هذا الجهاز. توحيد التعديلات بين كل المستخدمين وتسجيل الدخول والصلاحيات الفعلية يتطلب خادمًا وقاعدة بيانات.</div>
- <div class="tabs admin-tabs"><button class="tab active" onclick="adminPanelTab('order',this)">↕️ ترتيب المسؤولين</button><button class="tab" onclick="adminPanelTab('people',this)">👥 إدارة الأشخاص</button><button class="tab" onclick="adminPanelTab('bounds',this)">🗺️ حدود التيمات</button><button class="tab" onclick="adminPanelTab('access',this)">🔐 الحسابات والصلاحيات</button><button class="tab" onclick="adminPanelTab('appearance',this)">🎨 إعدادات الواجهة</button></div>
+ <section class="card"><h2>⚙️ لوحة إدارة الحفلجية V27</h2>
+ <div class="notice" id="hfCloudNotice"><b>☁️ مزامنة Supabase</b><br><span id="hfCloudStatus">جارٍ تجهيز الاتصال السحابي…</span><br><small>النصوص وترتيب المسؤولين وأرقام التواصل والمنشورات والصور تُزامَن عبر Supabase بعد إعداد مخزن الصور.</small></div>
+ <div class="tabs admin-tabs"><button class="tab active" onclick="adminPanelTab('order',this)">↕️ ترتيب المسؤولين</button><button class="tab" onclick="adminPanelTab('people',this)">👥 إدارة الأشخاص</button><button class="tab" onclick="adminPanelTab('bounds',this)">🗺️ حدود التيمات</button><button class="tab" onclick="adminPanelTab('access',this)">🔐 الحسابات والصلاحيات</button><button class="tab" onclick="adminPanelTab('appearance',this)">🎨 إعدادات الواجهة</button><button class="tab" onclick="adminPanelTab('v23',this)">🧩 أدوات V27</button></div>
  <div id="admin-order" class="admin-pane"><h3>ترتيب الظهور</h3><label>القسم</label><select id="orderGroup" class="search" onchange="renderOrderEditor()"><option value="admins">الأدمن</option><option value="supervisors">السوبر فايزر</option><option value="media">تيم الميديا</option><option value="girls">فراشات الحفلجية</option></select><div id="orderList"></div><button class="tab active" onclick="saveOrderEditor()">💾 حفظ الترتيب على هذا الجهاز</button></div>
  <div id="admin-people" class="admin-pane" style="display:none"><h3>إدارة بيانات الأشخاص</h3><button class="tab active" onclick="changeFounderPhoto()">📷 تغيير صورة المؤسس</button><label>القسم</label><select id="peopleGroup" class="search" onchange="renderPeopleEditor()"></select><div id="peopleList"></div><div class="admin-form"><input id="newPersonName" class="search" placeholder="اسم الشخص"><input id="newPersonRole" class="search" placeholder="الصفة / المسؤولية"><button class="tab active" onclick="addPersonToGroup()">＋ إضافة مسؤول / عضو</button></div></div>
- <div id="admin-appearance" class="admin-pane" style="display:none"><h3>🎨 إعدادات الواجهة والصور</h3><div class="admin-form"><label>صورة واجهة الموقع</label><input type="file" accept="image/*" onchange="setVisualAsset('heroImage',this)"><label>صورة غلاف التيم</label><select id="coverTeamSelect" class="search"></select><input type="file" accept="image/*" onchange="setTeamCover(this)"><label>صورة الخلفية</label><input type="file" accept="image/*" onchange="setVisualAsset('pageBackground',this)"><label>اللوجو المائي / Watermark</label><input type="file" accept="image/*" onchange="setVisualAsset('watermarkLogo',this)"><label>شفافية اللوجو المائي</label><input id="wmOpacity" type="range" min="2" max="35" value="10" oninput="applyWatermarkOpacity(this.value)"><label>حجم اللوجو المائي</label><input id="wmSize" type="range" min="20" max="90" value="55" oninput="applyWatermarkSize(this.value)"><label>مكان اللوجو</label><select id="wmPosition" class="search" onchange="applyWatermarkPosition(this.value)"><option value="center">منتصف الخلفية</option><option value="top">أعلى الخلفية</option><option value="bottom">أسفل الخلفية</option></select><label>الكلام أسفل اسم الجروب</label><input id="sloganInput" class="search" placeholder="اكتب العبارة أو الشعارات"><button class="tab active" onclick="saveSlogan()">💾 حفظ عبارة الواجهة</button><button class="tab" onclick="resetWatermark()">استرجاع إعدادات اللوجو</button></div></div>
+ <div id="admin-appearance" class="admin-pane" style="display:none"><h3>🎨 إعدادات الواجهة والصور</h3><div class="admin-form"><label>صورة المؤسس — كابتن حازم المليجي</label><input type="file" accept="image/*" onchange="setFounderPhotoAsset(this)"><label>صورة واجهة الموقع</label><input type="file" accept="image/*" onchange="setVisualAsset('heroImage',this)"><label>صورة غلاف التيم</label><select id="coverTeamSelect" class="search"></select><input type="file" accept="image/*" onchange="setTeamCover(this)"><label>صورة الخلفية</label><input type="file" accept="image/*" onchange="setVisualAsset('pageBackground',this)"><label>اللوجو المائي / Watermark</label><input type="file" accept="image/*" onchange="setVisualAsset('watermarkLogo',this)"><label>شفافية اللوجو المائي</label><input id="wmOpacity" type="range" min="2" max="35" value="10" oninput="applyWatermarkOpacity(this.value)"><label>حجم اللوجو المائي</label><input id="wmSize" type="range" min="20" max="90" value="55" oninput="applyWatermarkSize(this.value)"><label>مكان اللوجو</label><select id="wmPosition" class="search" onchange="applyWatermarkPosition(this.value)"><option value="center">منتصف الخلفية</option><option value="top">أعلى الخلفية</option><option value="bottom">أسفل الخلفية</option></select><label>الكلام أسفل اسم الجروب</label><input id="sloganInput" class="search" placeholder="اكتب العبارة أو الشعارات"><button class="tab active" onclick="saveSlogan()">💾 حفظ عبارة الواجهة</button><button class="tab" onclick="resetWatermark()">استرجاع إعدادات اللوجو</button></div></div>
  <div id="admin-bounds" class="admin-pane" style="display:none"><h3>إدارة حدود التيمات</h3><p>تم تجهيز مكان إدارة الحدود والصلاحية المستقلة لها. رسم حدود جغرافية دقيقة وحفظ الحدود المشتركة يتطلب ربط خريطة GIS وقاعدة بيانات سحابية قبل تفعيل التحرير؛ لن نعرض خريطة وهمية أو نرسم حدودًا غير مؤكدة.</p><div class="notice">حالات يجب دعمها: حدود شبرا مع عدة تيمات عند نزلة باسوس، حدود مصر الجديدة من أكثر من جهة، وتقسيم شارع بورسعيد حسب جانب الشارع واتجاهه.</div></div>
- <div id="admin-access" class="admin-pane" style="display:none"><h3>إدارة الحسابات</h3><p>إدارة الدعوات والحسابات وتحديد الصلاحيات تُفعّل بعد ربط خادم آمن. لا تُعرض بيانات حسابات أو صلاحيات المستخدمين داخل الواجهة العامة.</p></div>
+ 
+ <div id="admin-v23" class="admin-pane" style="display:none">
+  <h3>🧩 أدوات وتحديثات V27</h3>
+  <div class="notice">هذه الأدوات في هذه النسخة تعمل كمعاينة محلية على الجهاز. تسجيل الدخول والصلاحيات والمزامنة المركزية والنشر الحقيقي تحتاج تفعيل Supabase وسياسات قاعدة البيانات قبل استخدامها على الموقع العام.</div>
+  <div class="v23-panel">
+   <h3>🎨 ألوان الواجهة</h3>
+   <div class="v23-row">
+    <button class="v23-theme" onclick="applyV23Theme('purple')">بنفسجي هادئ</button>
+    <button class="v23-theme" onclick="applyV23Theme('blue')">أزرق</button>
+    <button class="v23-theme" onclick="applyV23Theme('green')">أخضر</button>
+    <button class="v23-theme" onclick="applyV23Theme('rose')">وردي</button>
+   </div>
+  </div>
+  <div class="v23-panel">
+   <h3>🖼️ اللوجو المستقل على خلفية بيضاء</h3>
+   <p class="v23-small">هذا اللوجو مستقل عن العلامة المائية ولا يغيّرها.</p>
+   <input type="file" accept="image/*" id="v23WhiteLogoInput" onchange="previewV23Image(this,'v23WhiteLogoPreview')">
+   <img id="v23WhiteLogoPreview" class="v23-preview" style="display:none">
+   <div class="v23-row"><button class="tab active" onclick="saveV23Image('v23WhiteLogoInput','hf_whiteLogo')">حفظ اللوجو</button><button class="tab" onclick="clearV23Asset('hf_whiteLogo')">حذف اللوجو</button></div>
+   <div id="v23WhiteLogoSlot" style="background:white;padding:10px;border-radius:12px;text-align:center;margin-top:8px"></div>
+  </div>
+  <div class="v23-panel">
+   <h3>✍️ عبارات أسفل اسم الجروب</h3>
+   <textarea id="v23Slogans" class="v23-input" rows="3" placeholder="كل عبارة في سطر مستقل"></textarea>
+   <div class="v23-row"><button class="tab active" onclick="saveV23Slogans()">حفظ العبارات</button><button class="tab" onclick="clearV23Slogans()">مسح الكل</button></div>
+  </div>
+  <div class="v23-panel">
+   <h3>📰 مساحة النشر</h3>
+   <input id="v23PostTitle" class="v23-input" placeholder="عنوان المنشور (اختياري)">
+   <textarea id="v23PostText" class="v23-input" rows="3" placeholder="نص المنشور"></textarea>
+   <input id="v23PostImage" type="file" accept="image/*" onchange="previewV23Image(this,'v23PostPreview')">
+   <img id="v23PostPreview" class="v23-preview" style="display:none">
+   <div class="v23-row"><button class="tab active" onclick="addV23Post()">إضافة كمسودة</button><button class="tab" onclick="clearV23PostForm()">تفريغ</button></div>
+   <div id="v23DraftPosts"></div>
+  </div>
+  <div class="v23-panel">
+   <h3>👁️ شاهد الموقع كـ</h3>
+   <select id="v23ViewAs" class="v23-input" onchange="previewV23Role()"></select>
+   <div id="v23RolePreview" class="notice">المعاينة توضيحية فقط ولا تنفذ عمليات بصلاحيات الشخص المحدد.</div>
+  </div>
+  <div class="v23-panel">
+   <h3>📋 سجل التعديلات المحلي</h3>
+   <p class="v23-small">يسجل نوع العملية ووقتها على هذا الجهاز فقط، ولا يُعد سجلًا مركزيًا أو محميًا.</p>
+   <div id="v23AuditList"></div>
+  </div>
+  <div class="v23-panel">
+   <h3>🔐 تجهيز الدخول والدعوات</h3>
+   <p class="v23-small">الدخول بالبريد وكلمة المرور، التسجيل بالدعوة فقط، وحسابا ماث وكابتن حازم والصلاحيات المفوضة تحتاج ربط Supabase Auth وجداول الأدوار وسياسات RLS. لا تدخل كلمات المرور أو المفاتيح السرية في هذه النسخة.</p>
+  </div>
+  <div class="v23-panel">
+   <h3>👥 ملف موحد وتكليفات متعددة</h3>
+   <p class="v23-small">تعديل الشخص في V20 كان منفصلًا حسب القسم. توحيد ملف الشخص الواحد وربط عدة تكليفات به يحتاج ترحيل البيانات إلى جداول مركزية قبل تفعيله حتى لا تتكرر السجلات أو تضيع أرقام الهواتف والصور.</p>
+  </div>
+ </div>
+
+<div id="admin-access" class="admin-pane" style="display:none"><h3>إدارة الحسابات</h3><p>إدارة الدعوات والحسابات وتحديد الصلاحيات تُفعّل بعد ربط خادم آمن. لا تُعرض بيانات حسابات أو صلاحيات المستخدمين داخل الواجهة العامة.</p></div>
  </section>
 </main>
 <main class="container team-page" id="teamPage"><button class="back" onclick="goHome()">← رجوع للرئيسية</button><section class="card"><div class="team-cover"><h1 id="teamTitle"></h1></div><h2>👥 المسؤولون</h2><div id="teamOfficials" class="people"></div><h2 style="margin-top:25px">🗺️ خريطة التيم</h2><div id="teamMap" class="map"><div><b>خريطة مناطق الحفلجية</b><br><br>حدود هذا التيم لم تُعتمد أو تُرسم بعد.<br><br><small>لن نعرض حدودًا غير مؤكدة.</small><br><button class="map-full" onclick="toggleMap()">⛶ فتح / غلق ملء الشاشة</button></div></div></section></main>
@@ -118,7 +236,7 @@ const inp=document.getElementById("areaSearch"),res=document.getElementById("sea
 const photo=document.getElementById("founderPhoto"),file=document.getElementById("photoInput");let saved=localStorage.getItem("haflagiaFounderPhoto");if(saved)photo.src=saved;
 
 // V20 local preview administration. These controls are intentionally local-only until server auth is connected.
-function openAdminGate(){if(!confirm('فتح لوحة الإدارة التجريبية؟\nتنبيه: هذه النسخة لا تحتوي بعد على تسجيل دخول آمن أو صلاحيات سحابية.'))return;document.getElementById('home').style.display='none';document.getElementById('teamPage').style.display='none';document.getElementById('adminPanel').style.display='block';initAdminPanel();scrollTo(0,0)}
+function openAdminGate(){return hfSignInAndOpenAdmin()}
 function closeAdminPanel(){document.getElementById('adminPanel').style.display='none';document.getElementById('home').style.display='block';scrollTo(0,0)}
 function adminPanelTab(id,btn){document.querySelectorAll('.admin-pane').forEach(x=>x.style.display='none');document.getElementById('admin-'+id).style.display='block';document.querySelectorAll('.admin-tabs .tab').forEach(x=>x.classList.remove('active'));btn.classList.add('active');if(id==='order')renderOrderEditor();if(id==='people')renderPeopleEditor()}
 function getGroupData(g){let base=({admins,supervisors,media,girls,...cairoTeams,...giza,...delta,...canal,...sinai,...upperEgypt,...gulf})[g]||[];let saved=localStorage.getItem('hf_roster_'+g);if(saved){try{let v=JSON.parse(saved);if(Array.isArray(v)){base.splice(0,base.length,...v)}}catch(e){}}return base}
@@ -129,7 +247,7 @@ function initAdminPanel(){let pg=document.getElementById('peopleGroup');pg.inner
 function renderOrderEditor(){let g=document.getElementById('orderGroup').value,arr=(window._hfOrderGroup===g&&window._hfOrderDraft)?window._hfOrderDraft:getOrdered(g,getGroupData(g)),el=document.getElementById('orderList');el.innerHTML='';arr.forEach((p,i)=>{let row=document.createElement('div');row.className='order-row';row.innerHTML=`<span>${i+1}. ${escapeHTML(p[0])} <small>${escapeHTML(p[1])}</small></span><span><button onclick="moveOrder(${i},-1)">↑</button><button onclick="moveOrder(${i},1)">↓</button></span>`;el.appendChild(row)})}
 function moveOrder(i,delta){let g=document.getElementById('orderGroup').value,a=(window._hfOrderGroup===g&&window._hfOrderDraft)?window._hfOrderDraft.slice():getOrdered(g,getGroupData(g));window._hfOrderGroup=g;let j=i+delta;if(j<0||j>=a.length)return;[a[i],a[j]]=[a[j],a[i]];window._hfOrderDraft=a;renderOrderEditor()}
 function saveOrderEditor(){let g=document.getElementById('orderGroup').value,a=window._hfOrderDraft||getOrdered(g,getGroupData(g));localStorage.setItem('hf_order_'+g,JSON.stringify(a.map(p=>p[0]+'|'+p[1])));window._hfOrderDraft=null;window._hfOrderGroup=null;alert('تم حفظ ترتيب العرض على هذا الجهاز.');renderOrderEditor();refreshCurrentView()}
-function changeFounderPhoto(){let fi=document.createElement('input');fi.type='file';fi.accept='image/*';fi.onchange=()=>{let f=fi.files[0];if(!f)return;let rd=new FileReader();rd.onload=()=>{try{localStorage.setItem('haflagiaFounderPhoto',rd.result);document.getElementById('founderPhoto').src=rd.result;alert('تم تحديث صورة المؤسس على هذا الجهاز.')}catch(e){alert('الصورة كبيرة على مساحة الحفظ.')} };rd.readAsDataURL(f)};fi.click()}
+function setFounderPhotoAsset(input){const f=input.files&&input.files[0];if(!f)return;if(!f.type.startsWith('image/')){alert('اختر ملف صورة صحيحًا.');input.value='';return}const rd=new FileReader();rd.onload=async()=>{try{localStorage.setItem('haflagiaFounderPhoto',rd.result);document.getElementById('founderPhoto').src=rd.result;if(window.hfWaitForCloudSync){await window.hfWaitForCloudSync();alert('تم حفظ صورة المؤسس ومزامنتها سحابيًا.')}else alert('تم حفظ صورة المؤسس محليًا. سجّل دخول الإدارة لمزامنتها سحابيًا.')}catch(e){alert('تعذر حفظ صورة المؤسس: '+(e.message||'مساحة التخزين غير كافية'))}};rd.readAsDataURL(f)} function changeFounderPhoto(){let fi=document.createElement('input');fi.type='file';fi.accept='image/*';fi.onchange=()=>setFounderPhotoAsset(fi);fi.click()}
 function renderPeopleEditor(){let g=document.getElementById('peopleGroup').value,a=getGroupData(g),el=document.getElementById('peopleList');el.innerHTML='';a.forEach((p,i)=>{let row=document.createElement('div');row.className='order-row';row.innerHTML=`<span><b>${escapeHTML(p[0])}</b><small>${escapeHTML(p[1])}</small></span><span><button onclick="editPersonEntry('${encodeURIComponent(g)}',${i})">تعديل</button><button onclick="movePersonEntry('${encodeURIComponent(g)}',${i})">نقل</button><button onclick="deletePersonEntry('${encodeURIComponent(g)}',${i})">حذف</button></span>`;el.appendChild(row)})}
 function editPersonEntry(g0,i){let g=decodeURIComponent(g0),a=getGroupData(g),p=a[i];let n=prompt('الاسم:',p[0]);if(n===null)return;let r=prompt('الصفة:',p[1]);if(r===null)return;let oldKey=g+'_'+safeKey(p[0]+'_'+p[1]);let d=JSON.parse(localStorage.getItem('hf_person_'+oldKey)||'{}');let ph=prompt('رقم الهاتف (اتركه فارغًا للمسح):',(d.phones||[d.phone||''])[0]||'');if(ph===null)return;let ph2=prompt('رقم هاتف إضافي (اختياري):',(d.phones||[])[1]||'');if(ph2===null)return;d.phones=[ph.trim(),ph2.trim()].filter(Boolean);let photoChoice=confirm('هل تريد إضافة/تغيير صورة هذا الشخص الآن؟');if(photoChoice){let fi=document.createElement('input');fi.type='file';fi.accept='image/*';fi.onchange=()=>{let f=fi.files[0];if(!f)return;let rd=new FileReader();rd.onload=()=>{d.photo=rd.result;localStorage.setItem('hf_person_'+g+'_'+safeKey(n.trim()+'_'+r.trim()),JSON.stringify(d));a[i]=[n.trim(),r.trim()];persistGroup(g);renderPeopleEditor();refreshCurrentView()};rd.readAsDataURL(f)};fi.click();return}a[i]=[n.trim(),r.trim()];localStorage.removeItem('hf_person_'+oldKey);localStorage.setItem('hf_person_'+g+'_'+safeKey(n.trim()+'_'+r.trim()),JSON.stringify(d));persistGroup(g);renderPeopleEditor();refreshCurrentView()}
 function deletePersonEntry(g0,i){let g=decodeURIComponent(g0),a=getGroupData(g);if(!confirm('تأكيد حذف هذا الشخص من القسم؟'))return;a.splice(i,1);persistGroup(g);renderPeopleEditor();refreshCurrentView()}
@@ -140,20 +258,301 @@ function addPersonToGroup(){let g=document.getElementById('peopleGroup').value,n
 // V20: private entry gesture; no visible administration button.
 let _brandClicks=0,_brandTimer=null;
 document.getElementById('brandTap').addEventListener('click',()=>{_brandClicks++;clearTimeout(_brandTimer);_brandTimer=setTimeout(()=>_brandClicks=0,2200);if(_brandClicks>=5){_brandClicks=0;openAdminGate()}});
-function setVisualAsset(key,input){const f=input.files&&input.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{localStorage.setItem('hf_'+key,rd.result);applyVisualAssets();alert('تم حفظ الصورة على هذا الجهاز.')}catch(e){alert('الصورة كبيرة على مساحة الحفظ. جرّب صورة أصغر.')}};rd.readAsDataURL(f)}
-function setTeamCover(input){const team=document.getElementById('coverTeamSelect').value,f=input.files&&input.files[0];if(!team||!f)return;const rd=new FileReader();rd.onload=()=>{try{localStorage.setItem('hf_team_cover_'+team,rd.result);if(document.getElementById('teamTitle').textContent===team)applyTeamCover(team);alert('تم حفظ صورة غلاف التيم على هذا الجهاز.')}catch(e){alert('الصورة كبيرة على مساحة الحفظ.')}};rd.readAsDataURL(f)}
+function setVisualAsset(key,input){const f=input.files&&input.files[0];if(!f)return;if(!f.type.startsWith('image/'))return alert('اختر ملف صورة صحيحًا.');const rd=new FileReader();rd.onload=async()=>{try{const k='hf_'+key;localStorage.setItem(k,rd.result);applyVisualAssets();if(window.hfWaitForCloudSync){await window.hfWaitForCloudSync();alert('تم حفظ الصورة ومزامنتها سحابيًا.')}else alert('تم حفظ الصورة محليًا. سجّل دخول الإدارة لمزامنتها سحابيًا.')}catch(e){alert('تعذر حفظ الصورة: '+(e.message||'مساحة التخزين غير كافية'))}};rd.readAsDataURL(f)}
+function setTeamCover(input){const team=document.getElementById('coverTeamSelect').value,f=input.files&&input.files[0];if(!team||!f)return;if(!f.type.startsWith('image/'))return alert('اختر ملف صورة صحيحًا.');const rd=new FileReader();rd.onload=async()=>{try{localStorage.setItem('hf_team_cover_'+team,rd.result);if(document.getElementById('teamTitle').textContent===team)applyTeamCover(team);if(window.hfWaitForCloudSync){await window.hfWaitForCloudSync();alert('تم حفظ غلاف التيم ومزامنته سحابيًا.')}else alert('تم حفظ غلاف التيم محليًا. سجّل دخول الإدارة لمزامنته سحابيًا.')}catch(e){alert('تعذر حفظ غلاف التيم: '+(e.message||'مساحة التخزين غير كافية'))}};rd.readAsDataURL(f)}
 function applyTeamCover(team){const el=document.querySelector('#teamPage .team-cover');if(!el)return;const im=localStorage.getItem('hf_team_cover_'+team);el.style.backgroundImage=im?`linear-gradient(#60338a88,#60338a88),url("${im}")`:'';el.style.backgroundSize='cover';el.style.backgroundPosition='center'}
 function applyVisualAssets(){const bg=localStorage.getItem('hf_pageBackground');if(bg)document.body.style.backgroundImage=`linear-gradient(#ffffffd9,#ffffffd9),url("${bg}")`;const wm=localStorage.getItem('hf_watermarkLogo');if(wm){document.body.style.setProperty('--hf-watermark',`url("${wm}")`);document.body.classList.add('has-watermark')}const hero=localStorage.getItem('hf_heroImage');if(hero){document.querySelector('header').style.backgroundImage=`linear-gradient(#60338acc,#60338acc),url("${hero}")`;document.querySelector('header').style.backgroundSize='cover';document.querySelector('header').style.backgroundPosition='center'}const sl=localStorage.getItem('hf_slogan');if(sl)document.getElementById('groupSlogan').textContent=sl;const op=localStorage.getItem('hf_wmOpacity')||10,sz=localStorage.getItem('hf_wmSize')||55,pos=localStorage.getItem('hf_wmPosition')||'center';document.documentElement.style.setProperty('--hf-wm-opacity',op/100);document.documentElement.style.setProperty('--hf-wm-size',sz+'%');document.documentElement.style.setProperty('--hf-wm-position',pos)}
 function applyWatermarkOpacity(v){localStorage.setItem('hf_wmOpacity',v);applyVisualAssets()}
 function applyWatermarkSize(v){localStorage.setItem('hf_wmSize',v);applyVisualAssets()}
 function applyWatermarkPosition(v){localStorage.setItem('hf_wmPosition',v);applyVisualAssets()}
-function saveSlogan(){const v=document.getElementById('sloganInput').value.trim();if(!v)return alert('اكتب العبارة أولاً.');localStorage.setItem('hf_slogan',v);applyVisualAssets();alert('تم تحديث عبارة الواجهة على هذا الجهاز.')}
+function saveSlogan(){const v=document.getElementById('sloganInput').value.trim();if(!v)return alert('اكتب العبارة أولاً.');localStorage.setItem('hf_slogan',v);applyVisualAssets();if(window.hfQueueCloudWrite)window.hfQueueCloudWrite('hf_slogan',v);alert('تم حفظ عبارة الواجهة. ستظهر على الأجهزة الأخرى بعد اكتمال المزامنة.')}
 function resetWatermark(){['hf_watermarkLogo','hf_wmOpacity','hf_wmSize','hf_wmPosition'].forEach(k=>localStorage.removeItem(k));document.body.classList.remove('has-watermark');applyVisualAssets()}
 const _oldInitAdminPanel=initAdminPanel;initAdminPanel=function(){_oldInitAdminPanel();const ts=document.getElementById('coverTeamSelect');if(ts){ts.innerHTML='';[...Object.keys(cairoTeams),...Object.keys(giza),...Object.keys(delta),...Object.keys(canal),...Object.keys(sinai),...Object.keys(upperEgypt),...Object.keys(gulf)].forEach(k=>{let o=document.createElement('option');o.value=k;o.textContent=k;ts.appendChild(o)})}const sl=document.getElementById('sloganInput');if(sl)sl.value=localStorage.getItem('hf_slogan')||'';const op=document.getElementById('wmOpacity');if(op)op.value=localStorage.getItem('hf_wmOpacity')||10;const sz=document.getElementById('wmSize');if(sz)sz.value=localStorage.getItem('hf_wmSize')||55;const ps=document.getElementById('wmPosition');if(ps)ps.value=localStorage.getItem('hf_wmPosition')||'center'};
 applyVisualAssets();
 
+
+// ===== V23 additions: local preview tools; server-side security is not enabled yet =====
+function openV23Page(which){
+ document.querySelectorAll('.inner-view,.v23-page').forEach(x=>x.style.display='none');
+ document.getElementById('home').style.display='block';
+ document.querySelector('.home-nav').style.display='none';
+ document.querySelector('.founder').style.display='none';
+ document.getElementById('v23-'+which+'-page').style.display='block';
+ scrollTo(0,0);
+}
+function closeV23Page(){
+ document.querySelectorAll('.v23-page').forEach(x=>x.style.display='none');
+ document.querySelector('.home-nav').style.display='grid';
+ document.querySelector('.founder').style.display='';
+ document.getElementById('home').style.display='block';
+ scrollTo(0,0);
+}
+function searchV23Map(){
+ const q=document.getElementById('v23MapSearch').value.trim();
+ const out=document.getElementById('v23MapResult');
+ if(!q){out.style.display='none';return}
+ const key=Object.keys(db).find(k=>q.includes(k)||k.includes(q));
+ const team=key?db[key]:'';
+ out.style.display='block';
+ out.textContent=team?('المنطقة: '+key+' — التيم المسؤول: '+team):'لم يتم العثور على المنطقة في دليل البحث الحالي. يمكنك البحث على الخريطة يدويًا.';
+ const query=encodeURIComponent(q);
+ document.getElementById('v23MapFrame').src='https://www.openstreetmap.org/export/embed.html?search='+query;
+}
+function clearV23Map(){document.getElementById('v23MapSearch').value='';document.getElementById('v23MapResult').style.display='none';document.getElementById('v23MapFrame').src='https://www.openstreetmap.org/export/embed.html?bbox=31.15%2C29.95%2C31.45%2C30.15&layer=mapnik'}
+function clearV23Fines(){['plateL1','plateL2','plateL3','plateDigits'].forEach(id=>document.getElementById(id).value='');document.getElementById('v23FinesResult').style.display='none'}
+function lookupV23Fines(){
+ const letters=['plateL1','plateL2','plateL3'].map(id=>document.getElementById(id).value.trim());
+ const digits=document.getElementById('plateDigits').value.trim();
+ const out=document.getElementById('v23FinesResult');
+ if(letters.some(x=>!x)||!digits){out.style.display='block';out.textContent='أكمل حروف اللوحة الثلاثة والأرقام أولًا.';return}
+ out.style.display='block';
+ out.textContent='تم تجهيز رقم اللوحة ('+letters.join('')+' '+digits+'). خدمة الاستعلام الرسمية غير متصلة بعد؛ لم يتم إرسال بياناتك لأي جهة.';
+}
+function previewV23Image(input,imgId){
+ const f=input.files&&input.files[0],img=document.getElementById(imgId);
+ if(!f){img.style.display='none';return}
+ if(!f.type.startsWith('image/')){alert('اختر ملف صورة صحيحًا.');input.value='';return}
+ const r=new FileReader();r.onload=()=>{img.src=r.result;img.style.display='block'};r.readAsDataURL(f);
+}
+function saveV23Image(inputId,key){
+ const input=document.getElementById(inputId),f=input.files&&input.files[0];
+ if(!f)return alert('اختر صورة وشاهد المعاينة أولًا.');
+ if(!f.type.startsWith('image/'))return alert('اختر ملف صورة صحيحًا.');
+ const r=new FileReader();r.onload=async()=>{try{localStorage.setItem(key,r.result);if(key==='hf_whiteLogo')renderV23WhiteLogo();v23Audit('حفظ صورة مستقلة');if(window.hfWaitForCloudSync){await window.hfWaitForCloudSync();alert('تم حفظ الصورة ومزامنتها سحابيًا.')}else alert('تم حفظ الصورة محليًا. سجّل دخول الإدارة لمزامنتها سحابيًا.')}catch(e){alert('تعذر حفظ الصورة: '+(e.message||'مساحة التخزين غير كافية'))}};r.readAsDataURL(f);
+}
+function renderV23WhiteLogo(){
+ const slot=document.getElementById('v23WhiteLogoSlot');if(!slot)return;
+ const src=localStorage.getItem('hf_whiteLogo');
+ slot.innerHTML=src?'<img alt="اللوجو المستقل" style="max-width:180px;max-height:120px;object-fit:contain" src="'+src+'">':'<span class="v23-small">لا يوجد لوجو محفوظ</span>';
+}
+function clearV23Asset(key){localStorage.removeItem(key);if(key==='hf_whiteLogo')renderV23WhiteLogo();v23Audit('حذف صورة مستقلة')}
+function applyV23Theme(t){
+ const themes={purple:['#60338a','#9b6bc3','#2b2032','#f4eff7'],blue:['#285b91','#6d9fce','#203044','#edf4fa'],green:['#28745f','#70ad94','#20372f','#edf6f1'],rose:['#98516e','#cb8aa4','#3d2732','#faf0f4']};
+ const a=themes[t];if(!a)return;
+ document.documentElement.style.setProperty('--p',a[0]);document.documentElement.style.setProperty('--p2',a[1]);document.documentElement.style.setProperty('--dark',a[2]);document.documentElement.style.setProperty('--bg',a[3]);
+ localStorage.setItem('hf_v23Theme',t);v23Audit('تغيير ألوان الواجهة');
+}
+function saveV23Slogans(){
+ const val=document.getElementById('v23Slogans').value;
+ localStorage.setItem('hf_v23Slogans',val);
+ const first=val.split('\n').map(x=>x.trim()).filter(Boolean)[0]||'';
+ localStorage.setItem('hf_slogan',first);
+ document.getElementById('groupSlogan').textContent=first;
+ v23Audit('تعديل عبارات الواجهة');if(window.hfQueueCloudWrite){window.hfQueueCloudWrite('hf_v23Slogans',val);window.hfQueueCloudWrite('hf_slogan',first)}alert('تم حفظ العبارات. ستظهر على الأجهزة الأخرى بعد اكتمال المزامنة.');
+}
+function clearV23Slogans(){document.getElementById('v23Slogans').value='';saveV23Slogans()}
+function v23GetPosts(){try{return JSON.parse(localStorage.getItem('hf_v23Posts')||'[]')}catch(e){return []}}
+function v23SetPosts(a){localStorage.setItem('hf_v23Posts',JSON.stringify(a));renderV23Posts()}
+function addV23Post(){
+ const title=document.getElementById('v23PostTitle').value.trim(),body=document.getElementById('v23PostText').value.trim(),f=document.getElementById('v23PostImage').files[0];
+ if(!title&&!body&&!f)return alert('أضف نصًا أو صورة للمنشور.');
+ const save=img=>{const a=v23GetPosts();a.unshift({id:Date.now(),title,body,image:img||'',published:false,createdAt:new Date().toISOString()});v23SetPosts(a);v23Audit('إنشاء مسودة منشور');clearV23PostForm()};
+ if(f){const r=new FileReader();r.onload=()=>save(r.result);r.readAsDataURL(f)}else save('');
+}
+function clearV23PostForm(){['v23PostTitle','v23PostText','v23PostImage'].forEach(id=>document.getElementById(id).value='');const p=document.getElementById('v23PostPreview');p.style.display='none';p.removeAttribute('src')}
+function publishV23Post(id){const a=v23GetPosts();const p=a.find(x=>x.id===id);if(!p)return;p.published=true;v23SetPosts(a);v23Audit('نشر منشور')}
+function hideV23Post(id){const a=v23GetPosts();const p=a.find(x=>x.id===id);if(!p)return;p.published=false;v23SetPosts(a);v23Audit('إخفاء منشور')}
+function deleteV23Post(id){if(!confirm('حذف المنشور نهائيًا؟'))return;v23SetPosts(v23GetPosts().filter(x=>x.id!==id));v23Audit('حذف منشور')}
+function renderV23Posts(){
+ const a=v23GetPosts(),pub=a.filter(x=>x.published),section=document.getElementById('publicPostsSection'),publicEl=document.getElementById('publicPosts'),draftEl=document.getElementById('v23DraftPosts');
+ if(section){section.style.display=pub.length?'block':'none';publicEl.innerHTML=pub.map(p=>'<article class="v23-post">'+(p.title?'<h3>'+escapeHTML(p.title)+'</h3>':'')+(p.body?'<p>'+escapeHTML(p.body).replace(/\n/g,'<br>')+'</p>':'')+(p.image?'<img src="'+p.image+'" alt="صورة المنشور">':'')+'</article>').join('')}
+ if(draftEl){draftEl.innerHTML=a.map(p=>'<article class="v23-post"><b>'+escapeHTML(p.title||'منشور بدون عنوان')+'</b><span class="v23-chip">'+(p.published?'منشور':'مسودة / مخفي')+'</span>'+(p.body?'<p>'+escapeHTML(p.body)+'</p>':'')+(p.image?'<img src="'+p.image+'" alt="">':'')+'<div class="v23-row">'+(p.published?'<button class="tab" onclick="hideV23Post('+p.id+')">إخفاء</button>':'<button class="tab active" onclick="publishV23Post('+p.id+')">نشر</button>')+'<button class="tab" onclick="deleteV23Post('+p.id+')">حذف نهائي</button></div></article>').join('')||'<p class="v23-small">لا توجد منشورات حاليًا.</p>'}
+}
+function v23Audit(action){
+ let a=[];try{a=JSON.parse(localStorage.getItem('hf_v23Audit')||'[]')}catch(e){}
+ a.unshift({action,time:new Date().toLocaleString('ar-EG')});localStorage.setItem('hf_v23Audit',JSON.stringify(a.slice(0,100)));renderV23Audit();
+}
+function renderV23Audit(){const el=document.getElementById('v23AuditList');if(!el)return;let a=[];try{a=JSON.parse(localStorage.getItem('hf_v23Audit')||'[]')}catch(e){}el.innerHTML=a.map(x=>'<div class="order-row"><span>'+escapeHTML(x.action)+'</span><small>'+escapeHTML(x.time)+'</small></div>').join('')||'<p class="v23-small">لا توجد تعديلات مسجلة.</p>'}
+function previewV23Role(){
+ const val=document.getElementById('v23ViewAs').value;
+ document.getElementById('v23RolePreview').textContent=val==='visitor'?'معاينة الزائر: الصفحة العامة فقط.':('معاينة شكلية لدور: '+val+' — هذه المحاكاة لا تمثل الصلاحيات الفعلية ولا تسمح بتنفيذ عمليات باسم هذا الحساب.');
+}
+function initV23Tools(){
+ const slogans=document.getElementById('v23Slogans');if(slogans)slogans.value=localStorage.getItem('hf_v23Slogans')??localStorage.getItem('hf_slogan')??'';
+ const sel=document.getElementById('v23ViewAs');if(sel&&!sel.options.length){
+  sel.add(new Option('منظور الزائر','visitor'));sel.add(new Option('ماث','ماث'));sel.add(new Option('كابتن حازم','كابتن حازم'));
+  [...admins,...supervisors].forEach(p=>sel.add(new Option(p[0],p[0])));
+ }
+ renderV23WhiteLogo();renderV23Posts();renderV23Audit();
+ const t=localStorage.getItem('hf_v23Theme');if(t)applyV23Theme(t);
+}
+const _v23OldInit=initAdminPanel;
+initAdminPanel=function(){_v23OldInit();initV23Tools()};
+const _v23OldShowSection=showSection;
+showSection=function(id){_v23OldShowSection(id);document.querySelector('.founder').style.display='none'};
+const _v23OldShowHome=showHome;
+showHome=function(){_v23OldShowHome();document.querySelector('.founder').style.display=''};
+document.querySelectorAll('.v23-letter').forEach((el,i,arr)=>el.addEventListener('input',()=>{el.value=el.value.slice(0,1);if(el.value&&arr[i+1])arr[i+1].focus()}));
+document.getElementById('plateDigits').addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'');if(e.target.value.length>=3)lookupV23Fines()});
+renderV23Posts();
+
+/* Supabase Auth bridge - V27. Publishable key is public; never put service_role/secret keys here. */
+async function hfLoadSupabase(){
+ if(window.supabase?.createClient) return window.supabase;
+ await new Promise((resolve,reject)=>{const sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';sc.onload=resolve;sc.onerror=()=>reject(new Error('تعذر تحميل مكتبة Supabase. تأكد من الإنترنت.'));document.head.appendChild(sc)});
+ if(!window.supabase?.createClient) throw new Error('مكتبة Supabase لم تفتح بشكل صحيح.');
+ return window.supabase;
+}
+function hfSupabaseConfig(){
+ const url='https://acjdxmeswfoqsgzudakl.supabase.co';
+ const key='sb_publishable_EN8R__N_CWqZIRtVBYSmRw_eGKOgi87';
+ return {url,key};
+}
+async function hfSignInAndOpenAdmin(){
+ try{
+  const cfg=hfSupabaseConfig();if(!cfg)return;
+  const lib=await hfLoadSupabase();
+  window.hfSupabaseClient=window.hfSupabaseClient||lib.createClient(cfg.url,cfg.key,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+  const email=prompt('اكتب البريد الإلكتروني لحساب الإدارة:');if(!email)return;
+  const password=prompt('اكتب كلمة مرور حسابك. لن تُرسل إلى ChatGPT:');if(!password)return;
+  const {data:authData,error:authError}=await window.hfSupabaseClient.auth.signInWithPassword({email:email.trim(),password});
+  if(authError)throw authError;
+  const user=authData.user;
+  const {data:roleRow,error:roleError}=await window.hfSupabaseClient.from('user_roles').select('role').eq('user_id',user.id).maybeSingle();
+  if(roleError)throw roleError;
+  if(!roleRow||roleRow.role!=='root_admin'){
+   await window.hfSupabaseClient.auth.signOut();
+   alert('تم تسجيل الدخول، لكن الحساب ليس لديه صلاحية root_admin. لم تُفتح لوحة الإدارة.');
+   return;
+  }
+  await window.hfStartCloudSync();
+  document.getElementById('home').style.display='none';
+  document.getElementById('teamPage').style.display='none';
+  document.getElementById('adminPanel').style.display='block';
+  initAdminPanel();scrollTo(0,0);
+  alert('تم تسجيل الدخول وربط البيانات والمنشورات والصور بسحابة الحفلجية.');
+ }catch(e){console.error(e);alert('تعذر تسجيل الدخول أو التحقق من الصلاحية: '+(e.message||'خطأ غير معروف'));}
+}
+openAdminGate=hfSignInAndOpenAdmin;
+
+/* Supabase data sync - V27: text, posts and image assets. */
+(function(){
+ const nativeSet=Storage.prototype.setItem;
+ const nativeRemove=Storage.prototype.removeItem;
+ const nativeGet=Storage.prototype.getItem;
+ const BUCKET='haflagia-assets';
+ let active=false, queue=Promise.resolve(), currentUserId=null, lastSyncError=null;
+ const isSyncKey=(k)=>typeof k==='string' && (
+   k.startsWith('hf_roster_') || k.startsWith('hf_order_') || k.startsWith('hf_person_') ||
+   k.startsWith('hf_team_cover_') ||
+   ['hf_slogan','hf_wmOpacity','hf_wmSize','hf_wmPosition','hf_v23Slogans','hf_v23Theme','hf_v23Audit','hf_v23Posts','hf_whiteLogo','haflagiaFounderPhoto','hf_pageBackground','hf_watermarkLogo','hf_heroImage'].includes(k)
+ );
+ const isImageData=(v)=>typeof v==='string' && /^data:image\//i.test(v);
+ function safePathPart(v){return String(v||'asset').normalize('NFKD').replace(/[^a-zA-Z0-9_-]+/g,'_').slice(0,70)||'asset'}
+ async function uploadImageData(dataUrl,key){
+   if(!window.hfSupabaseClient||!currentUserId)throw new Error('جلسة الإدارة غير جاهزة لرفع الصور');
+   const response=await fetch(dataUrl);const blob=await response.blob();
+   const mime=blob.type||'image/jpeg';
+   const ext=({'image/jpeg':'jpg','image/png':'png','image/webp':'webp','image/gif':'gif','image/avif':'avif'})[mime]||'jpg';
+   const path=safePathPart(key)+'/'+Date.now()+'_'+Math.random().toString(36).slice(2,10)+'.'+ext;
+   const {error}=await window.hfSupabaseClient.storage.from(BUCKET).upload(path,blob,{contentType:mime,cacheControl:'3600',upsert:false});
+   if(error)throw error;
+   const {data}=window.hfSupabaseClient.storage.from(BUCKET).getPublicUrl(path);
+   if(!data||!data.publicUrl)throw new Error('تم رفع الصورة لكن تعذر إنشاء رابطها العام');
+   return data.publicUrl;
+ }
+ async function normalizeCloudData(value,key){
+   if(typeof value==='string')return isImageData(value)?await uploadImageData(value,key):value;
+   if(Array.isArray(value))return await Promise.all(value.map(v=>normalizeCloudData(v,key)));
+   if(value&&typeof value==='object'){
+     const out={};for(const [k,v] of Object.entries(value))out[k]=await normalizeCloudData(v,key+'_'+k);return out;
+   }
+   return value;
+ }
+ function parseLocal(value){try{return JSON.parse(value)}catch(_){return value}}
+ function fromCloudValue(key,data){return typeof data==='string'?data:JSON.stringify(data)}
+ function setStatus(msg,isError=false){const el=document.getElementById('hfCloudStatus');if(el){el.textContent=msg;el.style.color=isError?'#a32626':''}}
+ async function writeCloud(key,value){
+   if(!window.hfSupabaseClient||!currentUserId)throw new Error('جلسة الإدارة غير جاهزة');
+   const normalized=await normalizeCloudData(parseLocal(value),key);
+   const row={key,data:normalized,visibility:key==='hf_v23Audit'?'private':'public',updated_by:currentUserId,updated_at:new Date().toISOString()};
+   const {error}=await window.hfSupabaseClient.from('app_data').upsert(row,{onConflict:'key'});
+   if(error)throw error;
+   // Replace local base64 image payloads with their public Storage URLs after a confirmed cloud save.
+   nativeSet.call(localStorage,key,fromCloudValue(key,normalized));
+   try{
+     if(key==='hf_v23Posts')renderV23Posts();
+     if(key==='haflagiaFounderPhoto'){const im=document.getElementById('founderPhoto');if(im)im.src=normalized;}
+     if(['hf_pageBackground','hf_watermarkLogo','hf_heroImage','hf_slogan','hf_wmOpacity','hf_wmSize','hf_wmPosition'].includes(key))applyVisualAssets();
+     if(key==='hf_whiteLogo')renderV23WhiteLogo();
+     if(key.startsWith('hf_team_cover_'))applyTeamCover(key.slice('hf_team_cover_'.length));
+   }catch(e){console.warn('Cloud asset refresh:',e)}
+ }
+ function queueWrite(key,value){
+   queue=queue.then(()=>writeCloud(key,value)).then(()=>{lastSyncError=null;setStatus('متصل — آخر التعديلات والصور تم حفظها سحابيًا.')}).catch(e=>{lastSyncError=e;console.error('Supabase sync:',e);setStatus('تعذر حفظ آخر تعديل سحابيًا: '+(e.message||'خطأ اتصال أو إعداد التخزين'),true)});
+   return queue;
+ }
+ window.hfQueueCloudWrite=queueWrite;
+ window.hfWaitForCloudSync=async()=>{if(!currentUserId)throw new Error('سجّل دخول الإدارة أولًا لتفعيل المزامنة السحابية.');await queue;if(lastSyncError)throw lastSyncError;};
+ async function hfStartCloudSync(){
+   const client=window.hfSupabaseClient;
+   if(!client)throw new Error('اتصال Supabase غير متاح');
+   setStatus('جارٍ تحميل البيانات والصور من السحابة…');
+   const {data:userData,error:userError}=await client.auth.getUser();
+   if(userError||!userData?.user)throw userError||new Error('انتهت جلسة الدخول');
+   currentUserId=userData.user.id;
+   const {data:rows,error}=await client.from('app_data').select('key,data,visibility');
+   if(error)throw error;
+   const remote=new Map((rows||[]).filter(r=>isSyncKey(r.key)).map(r=>[r.key,r]));
+   const localKeys=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(isSyncKey(k))localKeys.push(k)}
+   // Cloud wins when a row exists. Existing local images are uploaded when the cloud has no copy.
+   for(const [key,row] of remote)nativeSet.call(localStorage,key,fromCloudValue(key,row.data));
+   for(const key of localKeys){
+     if(remote.has(key))continue;
+     const value=nativeGet.call(localStorage,key);
+     if(value!==null)await writeCloud(key,value);
+   }
+   if(!active){
+     Storage.prototype.setItem=function(key,value){nativeSet.call(this,key,value);if(this===localStorage&&isSyncKey(String(key)))queueWrite(String(key),String(value));};
+     Storage.prototype.removeItem=function(key){nativeRemove.call(this,key);if(this===localStorage&&isSyncKey(String(key))&&window.hfSupabaseClient&&currentUserId){queue=queue.then(async()=>{const {error}=await window.hfSupabaseClient.from('app_data').delete().eq('key',String(key));if(error)throw error;setStatus('متصل — تم حفظ الحذف سحابيًا.')}).catch(e=>setStatus('تعذر مزامنة الحذف: '+(e.message||'خطأ'),true));}};
+     active=true;
+   }
+   try{
+     document.getElementById('admins').innerHTML=cards(admins,'admins');
+     document.getElementById('supervisors').innerHTML=cards(supervisors,'supervisors');
+     document.getElementById('girls').innerHTML=cards(girls,'girls');
+     document.getElementById('media').innerHTML=cards(media,'media');
+     const founderPhoto=nativeGet.call(localStorage,'haflagiaFounderPhoto');if(founderPhoto)document.getElementById('founderPhoto').src=founderPhoto;
+     applyVisualAssets();
+     const theme=nativeGet.call(localStorage,'hf_v23Theme');if(theme)applyV23Theme(theme);
+     renderV23Posts();renderV23Audit();
+   }catch(e){console.warn('Cloud data repaint:',e)}
+   setStatus('متصل بسحابة الحفلجية — تم تحميل البيانات والمنشورات والصور.');
+ }
+ window.hfStartCloudSync=hfStartCloudSync;
+})();
+
+/* V27 public visitor bootstrap: read public rows only; never writes or reads private audit data. */
+async function hfStartPublicCloudLoad(){
+ try{
+  const cfg=hfSupabaseConfig();
+  const lib=await hfLoadSupabase();
+  window.hfSupabaseClient=window.hfSupabaseClient||lib.createClient(cfg.url,cfg.key,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+  const {data:rows,error}=await window.hfSupabaseClient.from('app_data').select('key,data,visibility').eq('visibility','public');
+  if(error)throw error;
+  const allowed=(rows||[]).filter(r=>r.visibility==='public'&&r.key!=='hf_v23Audit'&&typeof r.key==='string');
+  for(const row of allowed){
+   const value=typeof row.data==='string'?row.data:JSON.stringify(row.data);
+   Storage.prototype.setItem.call(localStorage,row.key,value);
+  }
+  try{
+   document.getElementById('admins').innerHTML=cards(admins,'admins');
+   document.getElementById('supervisors').innerHTML=cards(supervisors,'supervisors');
+   document.getElementById('girls').innerHTML=cards(girls,'girls');
+   document.getElementById('media').innerHTML=cards(media,'media');
+   const founderPhoto=localStorage.getItem('haflagiaFounderPhoto');if(founderPhoto){const im=document.getElementById('founderPhoto');if(im)im.src=founderPhoto;}
+   applyVisualAssets();
+   const theme=localStorage.getItem('hf_v23Theme');if(theme)applyV23Theme(theme);
+   renderV23WhiteLogo();renderV23Posts();
+   document.querySelectorAll('[id^="team-"]').forEach(el=>{});
+   allowed.filter(r=>r.key.startsWith('hf_team_cover_')).forEach(r=>applyTeamCover(r.key.slice('hf_team_cover_'.length)));
+  }catch(renderError){console.warn('Public cloud repaint:',renderError)}
+  console.info('V27: public visitor data loaded',allowed.length);
+ }catch(e){console.warn('V27 public cloud load unavailable:',e);}
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',hfStartPublicCloudLoad,{once:true});
+else hfStartPublicCloudLoad();
+
 </script>
 </body>
 </html>
-
-<!-- cloudflare-test -->
