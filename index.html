@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#60338a">
-<title>الحفلجية – الواجهة الذكية V29</title>
+<title>الحفلجية – الواجهة الذكية V31</title>
 <style>
 :root{--p:#60338a;--p2:#9b6bc3;--dark:#2b2032;--muted:#746b79;--line:#eadff0;--bg:#f4eff7}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
@@ -65,6 +65,11 @@ body.has-watermark:before{content:"";position:fixed;inset:0;pointer-events:none;
 @media(max-width:480px){.v23-actions{gap:7px}.v23-btn{font-size:12px;padding:12px 5px}}
 
 </style>
+<style id="hfV31CloudNoticeHidden">#hfCloudNotice{display:none!important;visibility:hidden!important;height:0!important;min-height:0!important;overflow:hidden!important;margin:0!important;padding:0!important;border:0!important}</style>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="./icons/favicon-48.png">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
 </head>
 <body>
 <header><div class="header-content" id="brandTap" title=""><h1>الحفلجية – الواجهة الذكية</h1><p id="groupSlogan">الجروب ده بيتنا كلنا • كلنا واحد • القاهرة رقم 1</p></div></header>
@@ -82,7 +87,7 @@ body.has-watermark:before{content:"";position:fixed;inset:0;pointer-events:none;
 </section>
 <div class="v23-actions">
   <button class="v23-btn" onclick="openV23Page('map')">🗺️ خريطة الحفلجية</button>
-  <button class="v23-btn" onclick="openV23Page('fines')">🚘 مخالفات السيارات</button>
+
 </div>
 <section class="card" id="publicPostsSection" style="display:none">
   <h2>📢 المنشورات</h2><div id="publicPosts"></div>
@@ -120,20 +125,49 @@ body.has-watermark:before{content:"";position:fixed;inset:0;pointer-events:none;
  </section>
 </div>
 
-<div class="footer">الحفلجية • الواجهة الذكية V29</div>
+<div class="footer">الحفلجية • الواجهة الذكية V31.1</div>
 </main>
 <main class="container" id="adminPanel" style="display:none">
  <button class="back" onclick="closeAdminPanel()">← رجوع للموقع</button>
- <section class="card"><h2>⚙️ لوحة إدارة الحفلجية V29</h2>
+ <section class="card"><h2>⚙️ لوحة إدارة الحفلجية V31.1</h2>
  <div class="notice" id="hfCloudNotice"><b>☁️ مزامنة Supabase</b><br><span id="hfCloudStatus">جارٍ تجهيز الاتصال السحابي…</span><br><small>النصوص وترتيب المسؤولين وأرقام التواصل والمنشورات والصور تُزامَن عبر Supabase بعد إعداد مخزن الصور.</small></div>
- <div class="tabs admin-tabs"><button class="tab active" onclick="adminPanelTab('order',this)">↕️ ترتيب المسؤولين</button><button class="tab" onclick="adminPanelTab('people',this)">👥 إدارة الأشخاص</button><button class="tab" onclick="adminPanelTab('bounds',this)">🗺️ حدود التيمات</button><button class="tab" onclick="adminPanelTab('access',this)">🔐 الحسابات والصلاحيات</button><button class="tab" onclick="adminPanelTab('appearance',this)">🎨 إعدادات الواجهة</button><button class="tab" onclick="adminPanelTab('v23',this)">🧩 أدوات V29</button></div>
+ <div class="v23-row" style="margin:10px 0"><button class="tab" type="button" onclick="openV23Page('fines')">🚘 إدارة مخالفات السيارات</button></div>
+ <div class="tabs admin-tabs"><button class="tab active" onclick="adminPanelTab('order',this)">↕️ ترتيب المسؤولين</button><button class="tab" onclick="adminPanelTab('people',this)">👥 إدارة الأشخاص</button><button class="tab" onclick="adminPanelTab('teams',this)">🧭 إدارة التيمات</button><button class="tab" onclick="adminPanelTab('bounds',this)">🗺️ حدود التيمات</button><button class="tab" onclick="adminPanelTab('access',this)">🔐 الحسابات والصلاحيات</button><button class="tab" onclick="adminPanelTab('appearance',this)">🎨 إعدادات الواجهة</button><button class="tab" onclick="adminPanelTab('v23',this)">🧩 أدوات V29</button></div>
  <div id="admin-order" class="admin-pane"><h3>ترتيب الظهور</h3><label>القسم</label><select id="orderGroup" class="search" onchange="renderOrderEditor()"><option value="admins">الأدمن</option><option value="supervisors">السوبر فايزر</option><option value="media">تيم الميديا</option><option value="girls">فراشات الحفلجية</option></select><div id="orderList"></div><button class="tab active" onclick="saveOrderEditor()">💾 حفظ الترتيب ومزامنته</button></div>
  <div id="admin-people" class="admin-pane" style="display:none"><h3>إدارة بيانات الأشخاص</h3><label>القسم</label><select id="peopleGroup" class="search" onchange="renderPeopleEditor()"></select><div id="peopleList"></div><div class="admin-form"><input id="newPersonName" class="search" placeholder="اسم الشخص"><input id="newPersonRole" class="search" placeholder="الصفة / المسؤولية"><button class="tab active" onclick="addPersonToGroup()">＋ إضافة مسؤول / عضو</button></div></div>
  <div id="admin-appearance" class="admin-pane" style="display:none"><h3>🎨 إعدادات الواجهة والصور</h3><div class="admin-form"><label>صورة المؤسس — كابتن حازم المليجي</label><input type="file" accept="image/*" onchange="setFounderPhotoAsset(this)"><label>صورة واجهة الموقع</label><input type="file" accept="image/*" onchange="setVisualAsset('heroImage',this)"><label>صورة غلاف التيم</label><select id="coverTeamSelect" class="search"></select><input type="file" accept="image/*" onchange="setTeamCover(this)"><label>صورة الخلفية</label><input type="file" accept="image/*" onchange="setVisualAsset('pageBackground',this)"><label>اللوجو المائي / Watermark</label><input type="file" accept="image/*" onchange="setVisualAsset('watermarkLogo',this)"><label>شفافية اللوجو المائي</label><input id="wmOpacity" type="range" min="2" max="35" value="10" oninput="applyWatermarkOpacity(this.value)"><label>حجم اللوجو المائي</label><input id="wmSize" type="range" min="20" max="90" value="55" oninput="applyWatermarkSize(this.value)"><label>مكان اللوجو</label><select id="wmPosition" class="search" onchange="applyWatermarkPosition(this.value)"><option value="center">منتصف الخلفية</option><option value="top">أعلى الخلفية</option><option value="bottom">أسفل الخلفية</option></select><label>الكلام أسفل اسم الجروب</label><input id="sloganInput" class="search" placeholder="اكتب العبارة أو الشعارات"><button class="tab active" onclick="saveSlogan()">💾 حفظ عبارة الواجهة</button><button class="tab" onclick="resetWatermark()">استرجاع إعدادات اللوجو</button></div></div>
+
+ <div id="admin-teams" class="admin-pane" style="display:none">
+  <h3>🧭 إدارة التيمات والمناطق</h3>
+  <p class="v23-small">إنشاء التيم بالاسم أولًا، ثم إضافة مناطقه يدويًا. عند إضافة منطقة تُنقل تلقائيًا من التيم السابق. لكل تيم قائمة أورجنايزرز مستقلة. الحفظ السحابي فوري بعد منح الصلاحية؛ ورسم الحدود الدقيقة يحتاج مرحلة GIS مستقلة.</p>
+  <div class="v23-panel"><h3>إنشاء تيم جديد — الاسم أولًا</h3>
+   <input id="hfTeamNewName" class="v23-input" placeholder="اسم التيم الجديد">
+   <select id="hfTeamNewRegion" class="v23-input"></select>
+   <button class="tab active" type="button" onclick="hfTeamCreate()">＋ إنشاء التيم</button>
+  </div>
+  <div class="v23-panel"><h3>تعديل تيم موجود</h3>
+   <select id="hfTeamPick" class="v23-input" onchange="hfTeamLoadEditor()"></select>
+   <label class="v23-small">الاسم الجديد</label><input id="hfTeamRename" class="v23-input" placeholder="اسم التيم">
+   <label class="v23-small">المحافظة / المجموعة</label><select id="hfTeamRegionEdit" class="v23-input"></select>
+   <button class="tab active" type="button" onclick="hfTeamRenameSave()">حفظ الاسم والمجموعة</button>
+  </div>
+  <div class="v23-panel"><h3>إضافة أو نقل منطقة</h3>
+   <input id="hfTeamAreaName" class="v23-input" placeholder="اسم المنطقة">
+   <div class="v23-row"><select id="hfTeamAreaFrom" class="v23-input"></select><select id="hfTeamAreaTo" class="v23-input"></select></div>
+   <div class="v23-row"><button class="tab active" type="button" onclick="hfTeamAreaAdd()">إضافة منطقة للتيم</button><button class="tab" type="button" onclick="hfTeamAreaMove()">نقل المنطقة</button><button class="tab" type="button" onclick="hfTeamAreaSplit()">فصلها كتيم مستقل</button></div>
+   <div id="hfTeamAreaList" class="v23-small"></div>
+  </div>
+  <div class="v23-panel"><h3>دمج تيمين</h3>
+   <div class="v23-row"><select id="hfTeamMergeFrom" class="v23-input"></select><select id="hfTeamMergeTo" class="v23-input"></select></div>
+   <button class="tab active" type="button" onclick="hfTeamMerge()">دمج التيمين مع الاحتفاظ بالمسؤولين والمناطق</button>
+  </div>
+  <div id="hfTeamManagerStatus" class="notice" style="display:none"></div>
+ </div>
+
  <div id="admin-bounds" class="admin-pane" style="display:none"><h3>إدارة حدود التيمات</h3><p>تم تجهيز مكان إدارة الحدود والصلاحية المستقلة لها. رسم حدود جغرافية دقيقة وحفظ الحدود المشتركة يتطلب ربط خريطة GIS وقاعدة بيانات سحابية قبل تفعيل التحرير؛ لن نعرض خريطة وهمية أو نرسم حدودًا غير مؤكدة.</p><div class="notice">حالات يجب دعمها: حدود شبرا مع عدة تيمات عند نزلة باسوس، حدود مصر الجديدة من أكثر من جهة، وتقسيم شارع بورسعيد حسب جانب الشارع واتجاهه.</div></div>
  
  <div id="admin-v23" class="admin-pane" style="display:none">
-  <h3>🧩 أدوات وتحديثات V29</h3>
+  <h3>🧩 أدوات وتحديثات V31</h3>
   <div class="notice">المزامنة السحابية مفعّلة عبر Supabase. حفظ كل أداة على السحابة يتطلب الصلاحية المقابلة؛ بعض الوظائف مثل معاينة الأدوار والبحث الجغرافي ما زالت محلية أو قيد الاستكمال.</div>
   <div class="v23-panel">
    <h3>🎨 ألوان الواجهة</h3>
@@ -240,7 +274,7 @@ const photo=document.getElementById("founderPhoto"),file=document.getElementById
 function openAdminGate(){return hfSignInAndOpenAdmin()}
 function closeAdminPanel(){document.getElementById('adminPanel').style.display='none';document.getElementById('home').style.display='block';scrollTo(0,0)}
 function adminPanelTab(id,btn){document.querySelectorAll('.admin-pane').forEach(x=>x.style.display='none');document.getElementById('admin-'+id).style.display='block';document.querySelectorAll('.admin-tabs .tab').forEach(x=>x.classList.remove('active'));btn.classList.add('active');if(id==='order')renderOrderEditor();if(id==='people')renderPeopleEditor()}
-function getGroupData(g){let base=({admins,supervisors,media,girls,...cairoTeams,...giza,...delta,...canal,...sinai,...upperEgypt,...gulf})[g]||[];let saved=localStorage.getItem('hf_roster_'+g);if(saved){try{let v=JSON.parse(saved);if(Array.isArray(v)){base.splice(0,base.length,...v)}}catch(e){}}return base}
+function getGroupData(g){let base=({admins,supervisors,media,girls,...cairoTeams,...giza,...delta,...canal,...sinai,...upperEgypt,...gulf,...allAreas})[g]||[];let saved=localStorage.getItem('hf_roster_'+g);if(saved){try{let v=JSON.parse(saved);if(Array.isArray(v)){base.splice(0,base.length,...v)}}catch(e){}}return base}
 function persistGroup(g){localStorage.setItem('hf_roster_'+g,JSON.stringify(getGroupData(g)))}
 function loadRosterOverrides(){Object.keys({admins,supervisors,media,girls,...cairoTeams,...giza,...delta,...canal,...sinai,...upperEgypt,...gulf}).forEach(g=>getGroupData(g))}
 loadRosterOverrides();
@@ -253,7 +287,7 @@ function renderPeopleEditor(){let g=document.getElementById('peopleGroup').value
 function editPersonEntry(g0,i){let g=decodeURIComponent(g0),a=getGroupData(g),p=a[i];let n=prompt('الاسم:',p[0]);if(n===null)return;let r=prompt('الصفة:',p[1]);if(r===null)return;let oldKey='hf_person_'+g+'_'+safeKey(p[0]+'_'+p[1]);let d=JSON.parse(localStorage.getItem(oldKey)||'{}');let ph=prompt('رقم الهاتف (اتركه فارغًا للمسح):',(d.phones||[d.phone||''])[0]||'');if(ph===null)return;let ph2=prompt('رقم هاتف إضافي (اختياري):',(d.phones||[])[1]||'');if(ph2===null)return;d.phones=[ph.trim(),ph2.trim()].filter(Boolean);a[i]=[n.trim(),r.trim()];localStorage.removeItem(oldKey);localStorage.setItem('hf_person_'+g+'_'+safeKey(n.trim()+'_'+r.trim()),JSON.stringify(d));persistGroup(g);renderPeopleEditor();refreshCurrentView()}
 function changePersonPhoto(g0,i){let g=decodeURIComponent(g0),a=getGroupData(g),p=a[i];if(!p)return;let key='hf_person_'+g+'_'+safeKey(p[0]+'_'+p[1]);let d=JSON.parse(localStorage.getItem(key)||'{}');let fi=document.createElement('input');fi.type='file';fi.accept='image/*';fi.onchange=()=>{let f=fi.files&&fi.files[0];if(!f)return;if(!f.type.startsWith('image/'))return alert('اختر ملف صورة صحيحًا.');let rd=new FileReader();rd.onload=async()=>{d.photo=rd.result;localStorage.setItem(key,JSON.stringify(d));try{if(window.hfWaitForCloudSync)await window.hfWaitForCloudSync();alert('تم حفظ صورة المسؤول ومزامنتها سحابيًا.')}catch(e){alert('تم حفظ الصورة محليًا، وتعذرت المزامنة: '+(e.message||'لا توجد صلاحية'))}renderPeopleEditor();refreshCurrentView()};rd.readAsDataURL(f)};fi.click()}
 function deletePersonEntry(g0,i){let g=decodeURIComponent(g0),a=getGroupData(g);if(!confirm('تأكيد حذف هذا الشخص من القسم؟'))return;a.splice(i,1);persistGroup(g);renderPeopleEditor();refreshCurrentView()}
-function movePersonEntry(g0,i){let g=decodeURIComponent(g0),a=getGroupData(g),p=a[i],keys=Object.keys({admins,supervisors,media,girls,...cairoTeams,...giza,...delta,...canal,...sinai,...upperEgypt,...gulf}).filter(k=>k!==g);let target=prompt('اكتب اسم القسم أو التيم المراد النقل إليه:\n'+keys.join(' • '));if(!target||!keys.includes(target))return alert('اسم القسم غير صحيح.');getGroupData(target).push(p);a.splice(i,1);persistGroup(g);persistGroup(target);renderPeopleEditor();refreshCurrentView()}
+function movePersonEntry(g0,i){let g=decodeURIComponent(g0),a=getGroupData(g),p=a[i],keys=Object.keys({admins,supervisors,media,girls,...cairoTeams,...giza,...delta,...canal,...sinai,...upperEgypt,...gulf,...allAreas}).filter(k=>k!==g);let target=prompt('اكتب اسم القسم أو التيم المراد النقل إليه:\n'+keys.join(' • '));if(!target||!keys.includes(target))return alert('اسم القسم غير صحيح.');getGroupData(target).push(p);a.splice(i,1);persistGroup(g);persistGroup(target);renderPeopleEditor();refreshCurrentView()}
 function addPersonToGroup(){let g=document.getElementById('peopleGroup').value,n=document.getElementById('newPersonName').value.trim(),r=document.getElementById('newPersonRole').value.trim();if(!n||!r){alert('اكتب الاسم والصفة أولاً.');return}getGroupData(g).push([n,r]);persistGroup(g);document.getElementById('newPersonName').value='';document.getElementById('newPersonRole').value='';renderPeopleEditor();refreshCurrentView()}
 
 
@@ -523,6 +557,7 @@ openAdminGate=hfSignInAndOpenAdmin;
      document.getElementById('supervisors').innerHTML=cards(supervisors,'supervisors');
      document.getElementById('girls').innerHTML=cards(girls,'girls');
      document.getElementById('media').innerHTML=cards(media,'media');
+     if(window.hfV31ReloadTeams)window.hfV31ReloadTeams();
      const founderPhoto=nativeGet.call(localStorage,'haflagiaFounderPhoto');if(founderPhoto)document.getElementById('founderPhoto').src=founderPhoto;
      applyVisualAssets();
      const theme=nativeGet.call(localStorage,'hf_v23Theme');if(theme)applyV23Theme(theme);
@@ -546,6 +581,7 @@ async function hfStartPublicCloudLoad(){
    const value=typeof row.data==='string'?row.data:JSON.stringify(row.data);
    Storage.prototype.setItem.call(localStorage,row.key,value);
   }
+  if(window.hfV31ReloadTeams)window.hfV31ReloadTeams();
   try{
    document.getElementById('admins').innerHTML=cards(admins,'admins');
    document.getElementById('supervisors').innerHTML=cards(supervisors,'supervisors');
@@ -561,8 +597,8 @@ async function hfStartPublicCloudLoad(){
   console.info('V29: public visitor data loaded',allowed.length);
  }catch(e){console.warn('V28 public cloud load unavailable:',e);}
 }
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',hfStartPublicCloudLoad,{once:true});
-else hfStartPublicCloudLoad();
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>hfStartPublicCloudLoad().finally(()=>window.hfV31StartTeamRealtime?.()),{once:true});
+else hfStartPublicCloudLoad().finally(()=>window.hfV31StartTeamRealtime?.());
 
 </script>
 
@@ -669,7 +705,7 @@ else hfStartPublicCloudLoad();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',routeAuthLink,{once:true});else routeAuthLink();
  // Restore the authenticated admin session without asking for email/password again.
- async function restore(){try{if(new URLSearchParams(location.hash.replace(/^#/,'')).get('type')==='recovery'||new URLSearchParams(location.search).get('type')==='recovery')return;const c=await client();const {data:{session}}=await c.auth.getSession();if(session){const {data:isSuper,error:se}=await c.rpc('hf_is_super_admin');if(se)throw se;if(!isSuper){const {data:status,error:pe}=await c.rpc('hf_my_profile_status');if(pe)throw pe;if(status==='needs_update'||status==='incomplete'){$('hfV28UpdateProfileBtn').style.display='block';return;}}const {data:perms,error:pe}=await c.rpc('hf_my_permissions');if(pe)throw pe;if(isSuper||(perms||[]).some(p=>String(p.permission_key||'').startsWith('app_data:')||String(p.permission_key||'').startsWith('app_data_prefix:'))){await window.hfStartCloudSync();$('home').style.display='none';$('teamPage').style.display='none';$('adminPanel').style.display='block';initAdminPanel();}}}catch(e){console.warn('Session restore skipped:',e);}}
+ async function restore(){try{if(new URLSearchParams(location.hash.replace(/^#/,'')).get('type')==='recovery'||new URLSearchParams(location.search).get('type')==='recovery')return;const c=await client();const {data:{session}}=await c.auth.getSession();if(session){const {data:isSuper,error:se}=await c.rpc('hf_is_super_admin');if(se)throw se;if(!isSuper){const {data:status,error:pe}=await c.rpc('hf_my_profile_status');if(pe)throw pe;if(status==='needs_update'||status==='incomplete'){$('hfV28UpdateProfileBtn').style.display='block';return;}}const {data:perms,error:pe}=await c.rpc('hf_my_permissions');if(pe)throw pe;if(isSuper||(perms||[]).some(p=>String(p.permission_key||'').startsWith('app_data:')||String(p.permission_key||'').startsWith('app_data_prefix:'))){await window.hfStartCloudSync();/* V31: restore the login and cloud session only. The admin panel must remain closed until the five-logo-tap gesture. */}}}catch(e){console.warn('Session restore skipped:',e);}}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',restore,{once:true});else setTimeout(restore,0);
 })();
 </script>
@@ -696,6 +732,7 @@ else hfStartPublicCloudLoad();
  const OWNER='d97454db-abd6-4934-ae08-c410f9a8d198';
  const CATALOG=[
   ['app_data_prefix:hf_roster_','إدارة بيانات قوائم المسؤولين والأقسام'],
+  ['app_data:hf_roster_hfTeamStructure','إدارة التيمات والمناطق ونقلها'],
   ['app_data_prefix:hf_order_','ترتيب المسؤولين والأقسام'],
   ['app_data_prefix:hf_person_','تعديل ملفات الأشخاص وأرقامهم'],
   ['storage_prefix:hf_person_','رفع صور الأشخاص'],
@@ -721,6 +758,7 @@ else hfStartPublicCloudLoad();
   ['app_data:hf_heroImage','تغيير صورة واجهة الموقع'],
   ['storage:hf_heroImage','رفع صورة واجهة الموقع']
  ];
+ function getPermissionCatalog(){let extra=[];try{const teams=JSON.parse(localStorage.getItem('hf_roster_hfTeamStructure')||'[]');extra=teams.filter(t=>t&&t.name&&t.name!=='hfTeamStructure').map(t=>['app_data:hf_roster_'+t.name,'إدارة أورجنايزرز '+t.name]);}catch(_){}return [...CATALOG,...extra];}
  function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
  function setStatus(t,bad=false){const e=$('hfV29AccountStatus');if(e){e.textContent=t;e.style.color=bad?'#a32626':'';}}
  function filterV23Panels(superAdmin,perms,isOwner){
@@ -742,7 +780,7 @@ else hfStartPublicCloudLoad();
   const memberTools=$('hfV28MemberAdminTools');if(memberTools)memberTools.style.display=superAdmin?'':'none';
   const add=$('hfV29AddSuperAdmin');if(add)add.style.display=window.hfCurrentUserId===OWNER?'':'none';
   const can=(prefix)=>superAdmin||perms.some(p=>p===prefix||p.startsWith(prefix));
-  const checks={order:can('app_data_prefix:hf_order_'),people:can('app_data_prefix:hf_roster_')||can('app_data_prefix:hf_person_'),bounds:false,access:superAdmin,appearance:['hf_slogan','hf_wmOpacity','hf_wmSize','hf_wmPosition','hf_pageBackground','hf_watermarkLogo','hf_heroImage','haflagiaFounderPhoto'].some(k=>can('app_data:'+k))||can('app_data_prefix:hf_team_cover_'),v23:['hf_v23Posts','hf_v23Theme','hf_textColor','hf_whiteLogo'].some(k=>can('app_data:'+k))||(can('app_data:hf_v23Slogans')&&can('app_data:hf_slogan'))};
+  const checks={order:can('app_data_prefix:hf_order_'),people:can('app_data_prefix:hf_roster_')||can('app_data_prefix:hf_person_')||perms.some(p=>p.startsWith('app_data:hf_roster_')&&p!=='app_data:hf_roster_hfTeamStructure'),teams:can('app_data:hf_roster_hfTeamStructure'),bounds:false,access:superAdmin,appearance:['hf_slogan','hf_wmOpacity','hf_wmSize','hf_wmPosition','hf_pageBackground','hf_watermarkLogo','hf_heroImage','haflagiaFounderPhoto'].some(k=>can('app_data:'+k))||can('app_data_prefix:hf_team_cover_'),v23:['hf_v23Posts','hf_v23Theme','hf_textColor','hf_whiteLogo'].some(k=>can('app_data:'+k))||(can('app_data:hf_v23Slogans')&&can('app_data:hf_slogan'))};
   document.querySelectorAll('.admin-tabs button').forEach(b=>{const m=(b.getAttribute('onclick')||'').match(/adminPanelTab\('([^']+)'/);if(m)b.style.display=checks[m[1]]?'':'none';});
   filterV23Panels(superAdmin,perms,window.hfCurrentUserId===OWNER);
   const themePanel=[...document.querySelectorAll('#admin-v23 .v23-panel')].find(p=>(p.querySelector('h3')?.textContent||'').includes('ألوان الواجهة'));if(themePanel){themePanel.querySelectorAll('.v23-theme').forEach(b=>b.style.display=(superAdmin||perms.includes('app_data:hf_v23Theme'))?'':'none');const tc=themePanel.querySelector('#v23TextColor');if(tc)tc.style.display=(superAdmin||perms.includes('app_data:hf_textColor'))?'':'none';}
@@ -764,7 +802,7 @@ else hfStartPublicCloudLoad();
   window.hfSupabaseClient.rpc('hf_admin_list_accounts').then(({data,error})=>{
    if(error)throw error;const account=(data||[]).find(x=>x.user_id===userId);if(!account)throw new Error('الحساب غير موجود');if(account.is_super_admin)throw new Error('حساب الإدارة العليا لا يحتاج صلاحيات مفوضة.');
    const selected=new Set(account.permission_keys||[]);
-   editor.innerHTML='<h4>صلاحيات: '+esc(account.email)+'</h4><p class="v23-small">كل صلاحية مستقلة. الحساب لا يرى قائمة الحسابات أو بيانات الأعضاء بمجرد منحه صلاحيات تشغيل الموقع.</p>'+CATALOG.map(([key,label])=>'<label style="display:flex;gap:8px;align-items:center;padding:7px 0;border-bottom:1px solid #eee"><input type="checkbox" value="'+esc(key)+'" '+(selected.has(key)?'checked':'')+'> '+esc(label)+'</label>').join('')+'<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button class="primary" type="button" onclick="hfV29SavePermissions()">حفظ الصلاحيات</button><button class="tab" type="button" onclick="document.getElementById(\'hfV29PermissionEditor\').style.display=\'none\'">إلغاء</button></div>';
+   editor.innerHTML='<h4>صلاحيات: '+esc(account.email)+'</h4><p class="v23-small">كل صلاحية مستقلة. الحساب لا يرى قائمة الحسابات أو بيانات الأعضاء بمجرد منحه صلاحيات تشغيل الموقع.</p>'+getPermissionCatalog().map(([key,label])=>'<label style="display:flex;gap:8px;align-items:center;padding:7px 0;border-bottom:1px solid #eee"><input type="checkbox" value="'+esc(key)+'" '+(selected.has(key)?'checked':'')+'> '+esc(label)+'</label>').join('')+'<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button class="primary" type="button" onclick="hfV29SavePermissions()">حفظ الصلاحيات</button><button class="tab" type="button" onclick="document.getElementById(\'hfV29PermissionEditor\').style.display=\'none\'">إلغاء</button></div>';
    editor.style.display='block';editor.scrollIntoView({behavior:'smooth',block:'nearest'});
   }).catch(e=>setStatus(e.message||'تعذر فتح الصلاحيات',true));
  };
@@ -831,6 +869,92 @@ else hfStartPublicCloudLoad();
  const baseInit=window.initAdminPanel;
  if(typeof baseInit==='function')window.initAdminPanel=function(){baseInit();window.hfV29ApplyAccessUI();if(window.hfIsSuperAdmin)window.hfV29LoadAudit();if(window.hfCurrentUserId===OWNER)window.hfV29LoadPreviewAccounts();};
 })();
+</script>
+
+
+<!-- V31: Dynamic team directory and PWA -->
+
+<script>
+(function(){
+ 'use strict';
+ const KEY='hf_roster_hfTeamStructure';
+ const REGIONS=['القاهرة','الجيزة','الدلتا','مدن القنال والساحل','سيناء والبحر الأحمر','الصعيد','السعودية والخليج'];
+ const $=id=>document.getElementById(id), safe=v=>String(v||'').trim();
+ function canEdit(){const p=window.hfCurrentPermissions||[];return !!(window.hfCurrentUserId && (window.hfIsSuperAdmin||p.includes('app_data:'+KEY)));}
+ function requireEdit(){if(!canEdit()){alert('إدارة التيمات غير متاحة لهذا الحساب. يحدد مالك الموقع الحسابات المصرح لها.');return false;}return true;}
+ function defaults(){
+  const groups=[['القاهرة',cairoTeams],['الجيزة',giza],['الدلتا',delta],['مدن القنال والساحل',canal],['سيناء والبحر الأحمر',sinai],['الصعيد',upperEgypt],['السعودية والخليج',gulf]],a=[];
+  groups.forEach(([region,obj])=>Object.keys(obj).forEach(name=>a.push({id:'t_'+btoa(unescape(encodeURIComponent(name))).replace(/[^a-z0-9]/gi,'').slice(0,18),name,region,areas:Object.entries(db||{}).filter(([area,team])=>team===name).map(([area])=>area)})));
+  return a;
+ }
+ function read(){try{const x=JSON.parse(localStorage.getItem(KEY)||'null');return Array.isArray(x)?x.filter(t=>t&&t.id&&t.name&&REGIONS.includes(t.region)).map(t=>({...t,areas:Array.isArray(t.areas)?t.areas:[]})):defaults()}catch(_){return defaults()}}
+ let teams=read();
+ function rebuild(){
+  Object.keys(allAreas).forEach(k=>{if(!teams.some(t=>t.name===k))delete allAreas[k]});
+  const ownerByArea=new Map();
+  teams.forEach(t=>{if(!Array.isArray(allAreas[t.name]))allAreas[t.name]=[];(t.areas||[]).forEach(a=>ownerByArea.set(a,t.id))});
+  teams.forEach(t=>{t.areas=(t.areas||[]).filter(a=>ownerByArea.get(a)===t.id);t.areas.forEach(a=>db[a]=t.name)});
+  Object.keys(db).forEach(a=>{if(!teams.some(t=>t.name===db[a])){const f=teams.find(t=>t.areas.includes(a));if(f)db[a]=f.name}});
+ }
+ function render(){
+  const c0=$('cairoRegion'),r0=$('regions');if(!c0||!r0)return;c0.innerHTML='';r0.innerHTML='';
+  REGIONS.forEach(region=>{const list=teams.filter(t=>t.region===region);if(!list.length)return;
+   const d=document.createElement('details');d.className='region';const sm=document.createElement('summary');sm.textContent=region;const c=document.createElement('div');c.className='region-content';
+   list.forEach(t=>{const b=document.createElement('button');b.className='region-item';b.textContent=t.name;b.onclick=()=>openTeam(t.name);c.appendChild(b)});
+   d.append(sm,c);(region==='القاهرة'?c0:r0).appendChild(d);
+  });
+ }
+ async function persist(){
+  if(!requireEdit())return false;
+  localStorage.setItem(KEY,JSON.stringify(teams));rebuild();render();hfTeamRefreshControls();
+  const status=$('hfTeamManagerStatus');if(status){status.style.display='block';status.textContent='جارٍ حفظ التعديلات ومزامنتها سحابيًا…'}
+  try{if(!window.hfWaitForCloudSync)throw new Error('خدمة المزامنة غير جاهزة');await window.hfWaitForCloudSync();if(status)status.textContent='تم حفظ التعديلات سحابيًا؛ ستصل تلقائيًا لبقية المستخدمين.';return true;}
+  catch(e){if(status)status.textContent='تعذر إكمال المزامنة: '+(e.message||'راجع صلاحية إدارة التيمات.');alert('لم يتأكد الحفظ السحابي. راجع رسالة الحالة قبل المتابعة.');return false;}
+ }
+ function fill(sel,keep){if(!sel)return;const old=keep||sel.value;sel.innerHTML='';teams.forEach(t=>sel.add(new Option(t.name,t.id)));if([...sel.options].some(o=>o.value===old))sel.value=old}
+ window.hfTeamRefreshControls=function(){
+  ['hfTeamPick','hfTeamAreaFrom','hfTeamAreaTo','hfTeamMergeFrom','hfTeamMergeTo'].forEach(id=>fill($(id)));
+  ['hfTeamNewRegion','hfTeamRegionEdit'].forEach(id=>{const e=$(id);if(e){const old=e.value;e.innerHTML='';REGIONS.forEach(r=>e.add(new Option(r,r)));if(REGIONS.includes(old))e.value=old}});
+  const pg=$('peopleGroup'),og=$('orderGroup');
+  [pg,og].forEach(sel=>{if(sel){const staticVals=new Set(['admins','supervisors','media','girls']);[...sel.options].forEach(o=>{if(!staticVals.has(o.value))o.remove()});teams.forEach(t=>{if(![...sel.options].some(o=>o.value===t.name))sel.add(new Option(t.name,t.name));});}});
+  hfTeamLoadEditor();
+ };
+ window.hfTeamLoadEditor=function(){const t=teams.find(x=>x.id===$('hfTeamPick')?.value);if(!t)return;$('hfTeamRename').value=t.name;$('hfTeamRegionEdit').value=t.region;$('hfTeamAreaFrom').value=t.id;$('hfTeamAreaTo').value=t.id;$('hfTeamAreaList').textContent=t.areas.length?'مناطق التيم: '+t.areas.join('، '):'لم تُسجل مناطق فرعية لهذا التيم بعد.'};
+ window.hfTeamCreate=async function(){if(!requireEdit())return;const name=safe($('hfTeamNewName').value),region=$('hfTeamNewRegion').value;if(!name)return alert('اكتب اسم التيم أولًا.');if(teams.some(t=>t.name===name))return alert('اسم التيم موجود بالفعل.');const created={id:'t_'+Date.now().toString(36),name,region,areas:[]};teams.push(created);allAreas[name]=[];$('hfTeamNewName').value='';if(!await persist())return;$('hfTeamPick').value=created.id;$('hfTeamAreaTo').value=created.id;hfTeamLoadEditor();alert('تم إنشاء التيم. أضف المناطق التابعة له يدويًا من قسم إضافة أو نقل منطقة.')};
+ window.hfTeamRenameSave=async function(){if(!requireEdit())return;const t=teams.find(x=>x.id===$('hfTeamPick').value),name=safe($('hfTeamRename').value);if(!t||!name)return;if(teams.some(x=>x.id!==t.id&&x.name===name))return alert('اسم التيم مستخدم بالفعل.');const old=t.name,roster=localStorage.getItem('hf_roster_'+old),oldPeople=[...getGroupData(old)];t.name=name;t.region=$('hfTeamRegionEdit').value;localStorage.setItem('hf_roster_'+name,roster!==null?roster:JSON.stringify(oldPeople));if(roster!==null||oldPeople.length)localStorage.removeItem('hf_roster_'+old);if(allAreas[old]){allAreas[name]=allAreas[old];delete allAreas[old]}Object.keys(db).forEach(k=>{if(db[k]===old)db[k]=name});await persist()};
+ window.hfTeamAreaAdd=async function(){if(!requireEdit())return;const t=teams.find(x=>x.id===$('hfTeamAreaTo').value),a=safe($('hfTeamAreaName').value);if(!t||!a)return alert('اختر التيم واكتب المنطقة.');teams.forEach(x=>{x.areas=(x.areas||[]).filter(old=>old!==a)});t.areas.push(a);db[a]=t.name;$('hfTeamAreaName').value='';await persist()};
+ window.hfTeamAreaMove=async function(){if(!requireEdit())return;const a=safe($('hfTeamAreaName').value),f=teams.find(x=>x.id===$('hfTeamAreaFrom').value),t=teams.find(x=>x.id===$('hfTeamAreaTo').value);if(!a||!f||!t||f.id===t.id)return alert('حدد المنطقة والتيم الحالي والجديد.');if(!f.areas.includes(a))return alert('المنطقة غير مسجلة في التيم الحالي.');f.areas=f.areas.filter(x=>x!==a);teams.forEach(x=>{if(x.id!==t.id)x.areas=(x.areas||[]).filter(old=>old!==a)});if(!t.areas.includes(a))t.areas.push(a);db[a]=t.name;$('hfTeamAreaName').value='';await persist()};
+ window.hfTeamAreaSplit=async function(){if(!requireEdit())return;const a=safe($('hfTeamAreaName').value),f=teams.find(x=>x.id===$('hfTeamAreaFrom').value);if(!a||!f||!f.areas.includes(a))return alert('حدد منطقة مسجلة في التيم الحالي.');const name=prompt('اسم التيم المستقل للمنطقة:',a);if(!name)return;if(teams.some(x=>x.name===name))return alert('اسم التيم موجود بالفعل.');f.areas=f.areas.filter(x=>x!==a);const created={id:'t_'+Date.now().toString(36),name,region:f.region,areas:[a]};teams.push(created);db[a]=name;allAreas[name]=[];await persist()};
+ window.hfTeamMerge=async function(){if(!requireEdit())return;const f=teams.find(x=>x.id===$('hfTeamMergeFrom').value),t=teams.find(x=>x.id===$('hfTeamMergeTo').value);if(!f||!t||f.id===t.id)return alert('اختر تيمين مختلفين.');if(!confirm('سيتم نقل المناطق والمسؤولين من '+f.name+' إلى '+t.name+' ثم حذف التيم المصدر. هل توافق؟'))return;t.areas=[...new Set([...t.areas,...f.areas])];f.areas.forEach(a=>db[a]=t.name);const mergedPeople=[...getGroupData(t.name),...getGroupData(f.name)];allAreas[t.name]=mergedPeople;localStorage.setItem('hf_roster_'+t.name,JSON.stringify(mergedPeople));localStorage.removeItem('hf_roster_'+f.name);delete allAreas[f.name];Object.keys(db).forEach(k=>{if(db[k]===f.name)db[k]=t.name});teams=teams.filter(x=>x.id!==f.id);await persist()};
+ window.hfV31ReloadTeams=function(){teams=read();rebuild();render();if(window.hfTeamRefreshControls)hfTeamRefreshControls();};
+ let hfV31ReturnAdmin=false;
+ const baseOpenPage=window.openV23Page,baseClosePage=window.closeV23Page;
+ window.openV23Page=function(which){hfV31ReturnAdmin=$('adminPanel')?.style.display==='block';if(baseOpenPage)baseOpenPage(which);};
+ window.closeV23Page=function(){if(baseClosePage)baseClosePage();if(hfV31ReturnAdmin){$('home').style.display='none';$('adminPanel').style.display='block';hfV31ReturnAdmin=false;}};
+ const baseOpen=window.openTeam;window.openTeam=function(name){const t=teams.find(x=>x.name===name);if(!t&&baseOpen)return baseOpen(name);if(!Array.isArray(allAreas[name]))allAreas[name]=[];$('home').style.display='none';$('teamPage').style.display='block';$('teamTitle').textContent=name;$('teamOfficials').innerHTML=cards(getGroupData(name),name);$('teamMap').innerHTML='<div><b>خريطة مناطق الحفلجية</b><br><br>'+(t&&t.areas.length?'المناطق المسجلة: '+t.areas.map(escapeHTML).join('، '):'لم تُسجل مناطق فرعية أو حدود جغرافية معتمدة لهذا التيم بعد.')+'<br><br><small>الحدود الجغرافية الدقيقة غير مفعّلة بعد.</small><br><button class="map-full" onclick="toggleMap()">⛶ فتح / غلق ملء الشاشة</button></div>';scrollTo(0,0)};
+ const baseTab=window.adminPanelTab;window.adminPanelTab=function(id,btn){if(id==='teams'&&!canEdit()){alert('إدارة التيمات متاحة فقط للحسابات التي يحددها مالك الموقع.');return;}if(baseTab)baseTab(id,btn);if(id==='teams'){teams=read();rebuild();hfTeamRefreshControls();render()}};
+ const baseInit=window.initAdminPanel;window.initAdminPanel=function(){teams=read();if(baseInit)baseInit();hfTeamRefreshControls();render()};
+ rebuild();render();window.hfTeamManagerReady=true;
+})();
+
+/* V31.1: live public refresh for the shared team directory. */
+(function(){
+ const KEY='hf_roster_hfTeamStructure';
+ window.hfV31StartTeamRealtime=function(){
+  const client=window.hfSupabaseClient;
+  if(!client||!client.channel||window.hfV31TeamRealtimeChannel)return;
+  const apply=(row)=>{
+   if(!row||typeof row.key!=='string'||!row.key.startsWith('hf_roster_'))return;
+   const value=typeof row.data==='string'?row.data:JSON.stringify(row.data);
+   try{Storage.prototype.setItem.call(localStorage,row.key,value);if(row.key===KEY&&window.hfV31ReloadTeams)window.hfV31ReloadTeams();const page=document.getElementById('teamPage');const title=document.getElementById('teamTitle')?.textContent;if(page&&page.style.display==='block'&&title&&((row.key===KEY)||row.key==='hf_roster_'+title)&&window.openTeam)window.openTeam(title);}catch(e){console.warn('تعذر تحديث دليل التيمات لحظيًا:',e);}
+  };
+  const channel=client.channel('hf-team-directory-live').on('postgres_changes',{event:'*',schema:'public',table:'app_data',filter:'key=like.hf_roster_*'},payload=>{if(payload.eventType==='DELETE'){const key=payload.old?.key;if(typeof key==='string'&&key.startsWith('hf_roster_'))Storage.prototype.removeItem.call(localStorage,key);if(key===KEY&&window.hfV31ReloadTeams)window.hfV31ReloadTeams();}else apply(payload.new);}).subscribe(status=>{
+   if(status==='SUBSCRIBED'){client.from('app_data').select('key,data').eq('key',KEY).maybeSingle().then(({data,error})=>{if(!error&&data)apply(data);});}
+  });
+  window.hfV31TeamRealtimeChannel=channel;
+ };
+})();
+if('serviceWorker' in navigator && location.protocol!=='file:')window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(e=>console.warn('PWA SW:',e)));
 </script>
 
 </body>
